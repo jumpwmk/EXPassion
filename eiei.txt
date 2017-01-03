@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-kuay java
-=======
-kuay
->>>>>>> 0c9234096b55f2b1eae8c9be9bb6fc845ae88bb4
