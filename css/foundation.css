@@ -2109,7 +2109,7 @@ select {
     clear: both; }
   .top-bar,
   .top-bar ul {
-    background-color: #F8D8AA; }
+    background-color: #FFDDA6; }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }
@@ -3053,7 +3053,9 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 .orbit-image {
   width: 100%;
   max-width: 100%;
-  margin: 0; }
+  margin: 0; 
+  
+}
 
 .orbit-caption {
   position: absolute;
