@@ -1,5 +1,5 @@
 <?php
-$link = mysql_connect('localhost', 'thaidata', 'QazWsxEdc!@#');
+$link = mysql_connect('localhost', 'root', 'QazWsxEdc!@#');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
