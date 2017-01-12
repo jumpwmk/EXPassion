@@ -1,4 +1,22 @@
 <!doctype html>
+<?php
+    mysql_connect("localhost","root","jumpwmk");
+    mysql_select_db("nschuakuay");
+    if(mysql_select_db("nschuakuay") == FALSE)
+    {
+        echo "Kuay";
+    }
+    $strtask = mysql_query("SELECT * FROM task ");
+    if($strtask == FALSE) 
+    { 
+        die(mysql_error()); // TODO: better error handling
+    }
+    // while($task = mysql_fetch_array($strtask))
+    // {
+    //         echo $task["task"];
+    // }
+?>
+
 <html class="no-js" lang="en" dir="ltr">
     <head>
     <meta charset="utf-8">
@@ -39,7 +57,7 @@
 
     <div class="row">
         <fieldset class="large-12 columns">
-            <legend>Choose Your Favorite</legend>
+            <legend id = "problem"></legend>
             <input type="radio" name="setOfChoice" id="choiceA" required><label for="AAAA"><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceB"><label for="BBBB"><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceC"><label for="CCCC"><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
@@ -49,14 +67,29 @@
         </fieldset>
     </div>
 
-    <script>
-        
+    <?php
+        // while($task = mysql_fetch_array($strtask))
+        // {
+            $a = "sdfsfsdf";
+            echo "
+                <script>
+                    var problem;
+                    problem = <?php echo json_encode($a); ?>;
+                    id++;
+                </script>";
+        // }
+    ?>
+
+    <script type="text/javascript">
+
+
         /// memset element
-        
-        var datachoiceA = "AAAAAAAAAAA";
-        var datachoiceB = "BBBBBBBBBBB";
-        var datachoiceC = "CCCCCCCCCCC";
-        var datachoiceD = "DDDDDDDDDDD";
+        var id = 0;
+        var datachoiceA = "AAAAAA";
+        var datachoiceB = "BBBBBB";
+        var datachoiceC = "CCCCCC";
+        var datachoiceD = "DDDDDD";
+        document.getElementById("problem").innerHTML = problem;
         document.getElementById("dataChoiceA").innerHTML = datachoiceA;
         document.getElementById("dataChoiceB").innerHTML = datachoiceB;
         document.getElementById("dataChoiceC").innerHTML = datachoiceC;
@@ -114,6 +147,7 @@
         }
 
     </script>
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
