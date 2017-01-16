@@ -1,5 +1,14 @@
+
+<html>
+<head>
+	sdfasdfsdf
+</head>
+<body>
+
+</body>
+</html>
 <?php
-$link = mysql_connect('localhost', 'root', 'QazWsxEdc!@#');
+$link = mysql_connect('localhost', 'root', 'nschuakuay');
 if (!$link) {
     die('Could not connect: ' . mysql_error());
 }
