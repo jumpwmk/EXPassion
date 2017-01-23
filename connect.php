@@ -1,8 +1,21 @@
-<?php
-$link = mysql_connect('localhost', 'root', 'QazWsxEdc!@#');
-if (!$link) {
-    die('Could not connect: ' . mysql_error());
+<?
+$user = 'root';
+$password = 'root';
+$db = 'expassion';
+$host = 'localhost';
+$port = 8888;
+
+$link = mysqli_init();
+$success = mysqli_connect( 
+   $host,
+   $user, 
+   $password, 
+   $db,
+   $port
+);
+if(!$success)
+{
+	echo "kuy";
 }
-echo 'Connected successfully';
-mysql_close($link);
+
 ?>
