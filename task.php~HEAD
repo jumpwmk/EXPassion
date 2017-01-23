@@ -39,7 +39,7 @@
 
     <div class="row">
         <fieldset class="large-12 columns">
-            <legend>Choose Your Favorite</legend>
+            <legend id = "problem"></legend>
             <input type="radio" name="setOfChoice" id="choiceA" required><label for="AAAA"><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceB"><label for="BBBB"><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceC"><label for="CCCC"><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
@@ -49,6 +49,11 @@
         </fieldset>
     </div>
 
+    <?php
+        $test = "qwertyui";
+        echo "<script>var problem = $test</script>"
+    ?>
+
     <script>
         
         /// memset element
@@ -57,6 +62,7 @@
         var datachoiceB = "BBBBBBBBBBB";
         var datachoiceC = "CCCCCCCCCCC";
         var datachoiceD = "DDDDDDDDDDD";
+        document.getElementById("problem").innerHTML = problem;
         document.getElementById("dataChoiceA").innerHTML = datachoiceA;
         document.getElementById("dataChoiceB").innerHTML = datachoiceB;
         document.getElementById("dataChoiceC").innerHTML = datachoiceC;

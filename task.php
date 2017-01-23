@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html class="no-js" lang="en" dir="ltr">
     <head>
     <meta charset="utf-8">
@@ -34,12 +35,23 @@
     </div>
 
     <script>
-        /// problem with 4 choice
+
+        // problem with 4 choice
+        // set element
+
+        var problem = [];
+        var rankOfProblem = [];
+        var dataChoiceA = [];
+        var dataChoiceB = [];
+        var dataChoiceC = [];
+        var dataChoiceD = [];
+        var checkAnswer = [];
+    
     </script>
 
     <div class="row">
         <fieldset class="large-12 columns">
-            <legend id = "problem"></legend>
+            <legend id = "problemtask"></legend>
             <input type="radio" name="setOfChoice" id="choiceA" required><label for="AAAA"><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceB"><label for="BBBB"><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceC"><label for="CCCC"><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
@@ -50,23 +62,93 @@
     </div>
 
     <?php
-        $test = "qwertyui";
-        echo "<script>var problem = $test</script>"
+        $j = 1;
     ?>
 
     <script>
-        
+        document.cookie = "ID<?= $j; ?> = 50";
+        <?php $j++; ?>
+        document.cookie = "ID<?= $j; ?> = 60";
+    </script>
+    <?php
+        $j = 1;
+        $phpVar = $_COOKIE["ID$j"];
+        $j++;
+        $phpVar2 = $_COOKIE["ID$j"];
+        echo "$phpVar";
+    ?>
+    <?php
+
+        mysql_connect("localhost","root","jumpwmk");
+        mysql_select_db("nschuakuay");
+        if(mysql_select_db("nschuakuay") == FALSE)
+        {
+            echo "Kuay";
+        }
+        $strtask = mysql_query("SELECT * FROM task ");
+        if($strtask == FALSE) 
+        { 
+            die(mysql_error()); // TODO: better error handling
+        }
+
+        //problem set
+
+        $countProblem = 0;
+        $problem = array();
+        $choiceA = array();
+        $choiceB = array();
+        $choiceC = array();
+        $choiceD = array();
+        $checkAnswer = array();
+        $rankOfProblem = array();
+
+        while($task = mysql_fetch_array($strtask))
+        {
+            $problem[$countProblem] = $task["task"];
+            $choiceA[$countProblem] = $task["choiceA"];
+            $choiceB[$countProblem] = $task["choiceB"];
+            $choiceC[$countProblem] = $task["choiceC"];
+            $choiceD[$countProblem] = $task["choiceD"];
+            $checkAnswer[$countProblem] = $task["checkAnswer"];
+            $rankOfProblem[$countProblem] = $task["rank"];
+            $countProblem++;
+        }
+
+        for($loop = 0; $loop < $countProblem; $loop++)
+        {
+            echo "<script> problem[$loop] = '$problem[$loop]';</script>";
+            echo "<script> dataChoiceA[$loop] = '$choiceA[$loop]';</script>";
+            echo "<script> dataChoiceB[$loop] = '$choiceB[$loop]';</script>";
+            echo "<script> dataChoiceC[$loop] = '$choiceC[$loop]';</script>";
+            echo "<script> dataChoiceD[$loop] = '$choiceD[$loop]';</script>";
+            echo "<script> checkAnswer[$loop] = '$checkAnswer[$loop]'</script>";
+        }
+        $testtest = 20;
+        $mysql = "UPDATE task SET rank = $phpVar WHERE ID = 1";
+        if (mysql_query($mysql)) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . mysqli_error($strtask);
+        }
+        $mysql = "UPDATE task SET rank = $phpVar2 WHERE ID = 2";
+        if (mysql_query($mysql)) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: " . mysqli_error($strtask);
+        }
+    ?>
+
+    <script type="text/javascript">
+
         /// memset element
-        
-        var datachoiceA = "AAAAAAAAAAA";
-        var datachoiceB = "BBBBBBBBBBB";
-        var datachoiceC = "CCCCCCCCCCC";
-        var datachoiceD = "DDDDDDDDDDD";
-        document.getElementById("problem").innerHTML = problem;
-        document.getElementById("dataChoiceA").innerHTML = datachoiceA;
-        document.getElementById("dataChoiceB").innerHTML = datachoiceB;
-        document.getElementById("dataChoiceC").innerHTML = datachoiceC;
-        document.getElementById("dataChoiceD").innerHTML = datachoiceD;
+
+        var id = 0;
+        var IDproblem = 0;
+        document.getElementById("problemtask").innerHTML = problem[IDproblem];
+        document.getElementById("dataChoiceA").innerHTML = dataChoiceA[IDproblem];
+        document.getElementById("dataChoiceB").innerHTML = dataChoiceB[IDproblem];
+        document.getElementById("dataChoiceC").innerHTML = dataChoiceC[IDproblem];
+        document.getElementById("dataChoiceD").innerHTML = dataChoiceD[IDproblem];
         var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
         var alphabet = ['A', 'B', 'C', 'D', 'E'];
         var rank = 0;
@@ -83,7 +165,7 @@
                 check[ i ] = document.getElementById(choice[ i ]).checked;
             }
             /// isCorrect ?
-            var answer = 'B';
+            var answer = checkAnswer[IDproblem];
             var isCorrect = false;
             for(var i = 0; i < 4; i++)
             {
@@ -112,6 +194,7 @@
             rank--;
         }
     </script>
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
