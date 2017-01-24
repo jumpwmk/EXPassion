@@ -14,10 +14,6 @@ $success = mysqli_connect(
    $db,
    $port
 );
-if(!$success)
-{
-	echo "kuy";
-}
 
 $link = mysql_connect('localhost', 'root', 'nschuakuay');
 if (!$link) {
