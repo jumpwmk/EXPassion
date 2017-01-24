@@ -79,7 +79,7 @@
     <script>
         document.cookie = "ID<?= $j; ?> = 20";
         <?php $j++; ?>
-        document.cookie = "ID<?= $j; ?> = 60";
+        document.cookie = "ID<?= $j; ?> = 60";d
     </script>
 
     <?php
