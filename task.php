@@ -50,7 +50,10 @@
     </script>
 
     <div class="row">
-        <fieldset class="large-12 columns">
+        <div class="medium-4 columns">
+            
+        </div>
+        <div class="medium-4 columns">
             <legend id = "problemtask"></legend>
             <input type="radio" name="setOfChoice" id="choiceA" required><label for="AAAA"><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
             <input type="radio" name="setOfChoice" id="choiceB"><label for="BBBB"><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
@@ -58,7 +61,15 @@
             <input type="radio" name="setOfChoice" id="choiceD"><label for="DDDD"><p onclick = "check(3)" id = "dataChoiceD"> </p></label></br>
             <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
             <p id = "score"></p>
-        </fieldset>
+        </div>
+        <div class="medium-4 columns">
+            
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="small-5 small-push-7 medium-7 medium-push-5 columns">7</div>
+      <div class="small-7 small-pull-5 medium-5 medium-pull-7 columns">5, last</div>
     </div>
 
     <?php
@@ -66,10 +77,11 @@
     ?>
 
     <script>
-        document.cookie = "ID<?= $j; ?> = 50";
+        document.cookie = "ID<?= $j; ?> = 20";
         <?php $j++; ?>
         document.cookie = "ID<?= $j; ?> = 60";
     </script>
+
     <?php
         $j = 1;
         $phpVar = $_COOKIE["ID$j"];
@@ -152,11 +164,14 @@
         var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
         var alphabet = ['A', 'B', 'C', 'D', 'E'];
         var rank = 0;
+
         /// function blah blah
+
         function check(index)
         {
             document.getElementById(choice[ index ]).checked = true;
         }
+
         function checkTask() 
         {
             var check = [];
@@ -164,6 +179,7 @@
             {
                 check[ i ] = document.getElementById(choice[ i ]).checked;
             }
+
             /// isCorrect ?
             var answer = checkAnswer[IDproblem];
             var isCorrect = false;
@@ -172,6 +188,7 @@
                 if((document.getElementById(choice[ i ]).checked == true) && (alphabet[ i ] == answer))
                     isCorrect = true;
             }
+
             /// update rank
             if(isCorrect == true)
                 rankup();
@@ -185,14 +202,17 @@
             }
             document.getElementById("score").innerHTML = rank;
         }
+
         function rankup()
         {
             rank++;
         }
+
         function rankdown() 
         {
             rank--;
         }
+
     </script>
 
 
