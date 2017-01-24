@@ -1,4 +1,7 @@
-<!doctype html>
+<?php
+include "connect.php";
+include "script.php";
+?>
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -69,23 +72,38 @@
   
     <!-- MAIN CONTENT -->
     <div class="main-content">
-      <div class="row expanded">
-        <div class="small-12 medium-2 large-3 columns philo">
-          Study<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <div class="sell-direct">
+        <div class="row expanded">
+          <div class="small-12 medium-2 large-3 columns philo">
+            Study<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </div>
+          <div class="small-12 medium-2 large-3 columns philo">
+            Train your self
+          </div>
+          <div class="small-12 medium-2 large-3 columns philo">
+            compete with the others
+          </div>
+          <div class="small-12 medium-2 large-3 columns philo">
+            earn acheivement
+          </div>
         </div>
-        <div class="small-12 medium-2 large-3 columns philo">
-          Train your self
-        </div>
-        <div class="small-12 medium-2 large-3 columns philo">
-          compete with the others
-        </div>
-        <div class="small-12 medium-2 large-3 columns philo">
-          earn acheivement
+      </div>
+      <div class="leaderboard">
+        <div class="row expanded">
+          <div class="large-3 medium-3 small-3 columns lead-menu">
+            <div class="row"><a onclick="clickLeader()">Math</a></div>
+            <div class="row"><a href="http://www.google.co.th">Physics</a></div>
+            <div class="row"><a href="">Chemistry</a></div>
+            <div class="row"><a href="">Biology</a></div>
+            <div class="row"><a href="">English</a></div>
+            <div class="row"><a href="">Social Study</a></div>
+          </div>
+          <div class="large-9 medium-3 small-3 columns" id="leaderBoard">
+            <h1>leaderBoard Here!</h1>
+          </div>
         </div>
       </div>
     </div>
-
-
     <!-- FOOTER -->
     <footer class="footer">
       <div class="row full-width">
@@ -114,10 +132,11 @@
         </div>
       </div>
     </footer>
+  
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/vendor/app.js"></script>
   </body>
 </html>
