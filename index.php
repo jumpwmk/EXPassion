@@ -1,13 +1,20 @@
-
+<?php
+include "connect.php";
+include "script.php";
+?>
     <html class="no-js" lang="en" dir="ltr">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EXPassion : Be passion by learning</title>
+        <title>EXPassion : Be passioned by learning</title>
         <link rel="stylesheet" href="css/foundation.css">
         <link rel="stylesheet" href="css/app.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
     </head>
 
     <body>
@@ -16,71 +23,97 @@
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
-                        <ul class="dropdown menu" data-dropdown-menu>
-                            <li class="menu-text">NSCHUAKUAY</li>
-                        </ul>
+                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;EXPassion</p>
                     </div>
                     <div class="top-bar-right">
                         <ul class="menu">
-                            <li>
-                                <button type="button" class="button st">Sign In</button>&nbsp;</li>
-                            <li>
-                                <button type="button" class="button st">Sign Up</button>&nbsp;</li>
+                            <ul class="inline-list hide-for-small-only account-action">
+                                <li><a href="#" data-open="myModal">Login</a></li>
+                                <li class=""><a class="signup" href="#" data-reveal-id="myModal">Signup</a></li>
+                            </ul>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
- 
         <!-- REVEAL -->
-        <!--  <div class="reveal" id="exampleModal1" data-reveal>
-            <h1>Awesome. I Have It.</h1>
-            <p class="lead">Your couch. It is mine.</p>
-            <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-            <button class="close-button" data-close aria-label="Close modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <p><a data-open="exampleModal1">Click me for a modal</a></p> -->
-        <!-- HERO SECTION -->
-        <div class="row collapse expanded">
-            <div class="orbit-container">
-                <div class="orbit-container" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-                    <ul class="orbit-container">
-                        <li class="orbit-slide is-active">
-                            <img class="orbit-img-top" src="img/underconstruction.jpg">
-
-                        </li>
-                      
-                    </ul>
-                    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
-                    <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
-                    <nav class="orbit-bullets">
-                        <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
-                        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-                        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-                        <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
-                    </nav>
+        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
+            <div class="row">
+                <div class="large-6 columns auth-plain">
+                    <div class="signup-panel left-solid">
+                        <p class="welcome">Registered Users</p>
+                        <form>
+                            <div class="row collapse">
+                                <div class="small-2  columns">
+                                    <span class="prefix"><i class="fi-torso-female"></i></span>
+                                </div>
+                                <div class="small-10  columns">
+                                    <input type="text" placeholder="username">
+                                </div>
+                            </div>
+                            <div class="row collapse">
+                                <div class="small-2 columns ">
+                                    <span class="prefix"><i class="fi-lock"></i></span>
+                                </div>
+                                <div class="small-10 columns ">
+                                    <input type="text" placeholder="password">
+                                </div>
+                            </div>
+                        </form>
+                        <a href="#" class="button ">Log In </a>
+                    </div>
                 </div>
+                    <div class="large-6 columns auth-plain">
+                        <div class="signup-panel newusers">
+                            <p class="welcome"> New User?</p>
+                            <p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p>
+                            <br>
+                            <a href="#" class="button ">Sign Up</a></br>
+                        </div>
+                    </div>
+                </div>
+                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+        
+        <!-- HERO SECTION -->
+        <div class="hero">
+                <div class="orbit-container">
+                    <div class="orbit-container" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+                        <ul class="orbit-container">
+                            <li class="orbit-slide is-active">
+                                <img class="orbit-img-top" src="img/underconstruction.jpg">
+                            </li>
+                        </ul>
+                        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+                        <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
+                     
+                    </div>
+                </div>
         </div>
         <!-- MAIN CONTENT -->
         <br>
-        &nbsp;
         <div class="main-content">
             <div class="sell-direct">
                 <div class="row expanded">
                     <div class="small-12 medium-2 large-3 columns philo-box">
-                      <img src="img/books.png"><br>
-                      <div class="row">  <h2 class="philo">Study</h2></div>
+                        <img src="img/books.png">
+                        <br>
+                        <div class="row">
+                            <h2 class="philo">Study</h2></div>
                     </div>
                     <div class="small-12 medium-2 large-3 columns philo-box">
-                      <img src="img/exam.png"><br>
-                      <div class="row">  <h2 class="philo">Train your self</h2></div>
+                        <img src="img/exam.png">
+                        <br>
+                        <div class="row">
+                            <h2 class="philo">Train your self</h2></div>
                     </div>
                     <div class="small-12 medium-2 large-3 columns philo-box">
-                      <img src="img/business.png"><br>
-                      <div class="row"> <h3 class="philo">Compete with the others<h2></div>
+                        <img src="img/business.png">
+                        <br>
+                        <div class="row">
+                            <h3 class="philo">Compete with the others<h2></div>
                     </div>
                     <div class="small-12 medium-2 large-3 columns philo-box">
                       <img src="img/medal.png"><br>
@@ -92,15 +125,17 @@
             <div class="leaderboard">
                 <div class="row expanded">
                     <div class="large-3 medium-3 small-3 columns lead-menu">
-                        <div class="row" id="over"><a onclick="clickLeader()" class="leader-text">Math</a></div>
-                        <div class="row"><a href="" class="leader-text">Physics</a></div>
-                        <div class="row"><a href="" class="leader-text">Chemistry</a></div>
-                        <div class="row"><a href="" class="leader-text">Biology</a></div>
-                        <div class="row"><a href="" class="leader-text">English</a></div>
-                        <div class="row"><a href="" class="leader-text">Social Study</a></div>
+                        <div class="row math"   ><a onclick="clickLeader()" class="leader-text">Math</a></div>
+                        <div class="row phys"   ><a class="leader-text">Physics</a></div>
+                        <div class="row chem"   ><a class="leader-text">Chemistry</a></div>
+                        <div class="row bio"    ><a class="leader-text">Biology</a></div>
+                        <div class="row eng"    ><a class="leader-text">English</a></div>
+                        <div class="row social" ><a class="leader-text">Social Study</a></div>
                     </div>
-                    <div class="large-9 medium-3 small-3 columns leader-text" id="leaderBoard">
-                        <h1 class="leader-text">leaderBoard Here!</h1>
+                    <div class="large-9 medium-3 small-3 columns leader-text">
+                        <div class="rank" id="leaderBoard">
+
+                        </div>
                     </div>
                 </div>
             </div>
