@@ -1,4 +1,5 @@
 var tmp;
+var index = [];
 var problem = [];
 var rank = [];
 var rank10 = [];

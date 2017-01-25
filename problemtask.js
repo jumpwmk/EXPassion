@@ -1,12 +1,13 @@
-document.getElementById("problemtask").innerHTML = problem[IDproblem];
-document.getElementById("dataChoiceA").innerHTML = dataChoiceA[IDproblem];
-document.getElementById("dataChoiceB").innerHTML = dataChoiceB[IDproblem];
-document.getElementById("dataChoiceC").innerHTML = dataChoiceC[IDproblem];
-document.getElementById("dataChoiceD").innerHTML = dataChoiceD[IDproblem];
+document.getElementById("problemtask").innerHTML = problem[index[IDproblem]];
+document.getElementById("dataChoiceA").innerHTML = dataChoiceA[index[IDproblem]];
+document.getElementById("dataChoiceB").innerHTML = dataChoiceB[index[IDproblem]];
+document.getElementById("dataChoiceC").innerHTML = dataChoiceC[index[IDproblem]];
+document.getElementById("dataChoiceD").innerHTML = dataChoiceD[index[IDproblem]];
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 document.getElementById("score").innerHTML = binaryTask[1];
+randomProblem();
 
 /// function blah blah
 
@@ -25,7 +26,7 @@ function checkTask()
     }
 
     /// isCorrect ?
-    var answer = checkAnswer[IDproblem];
+    var answer = checkAnswer[index[IDproblem]];
     var isCorrect = false;
     for(var i = 0; i < 4; i++)
     {
@@ -41,29 +42,29 @@ function checkTask()
         return;
     }
 
-    alluser[IDproblem]++;
-    document.cookie = "alluser" + countUpdateAll + " = " + IDproblem;
+    alluser[index[IDproblem]]++;
+    document.cookie = "alluser" + countUpdateAll + " = " + index[IDproblem];
     countUpdateAll++;
-    document.cookie = "alluser" + countUpdateAll + " = " + alluser[IDproblem];
+    document.cookie = "alluser" + countUpdateAll + " = " + alluser[index[IDproblem]];
     countUpdateAll++;
     document.cookie = "alluser = " + countUpdateAll;
 
     /// update rank
     if(isCorrect == true)
     {
-        pass[IDproblem]++;
-        document.cookie = "pass" + countpass + " = " + IDproblem;
+        pass[index[IDproblem]]++;
+        document.cookie = "pass" + countpass + " = " + index[IDproblem];
         countpass++;
-        document.cookie = "pass" + countpass + " = " + pass[IDproblem];
+        document.cookie = "pass" + countpass + " = " + pass[index[IDproblem]];
         countpass++;
         document.cookie = "pass = " + countpass;
 
-        document.cookie = "task" + counttask + " = " + IDproblem;
+        document.cookie = "task" + counttask + " = " + index[IDproblem];
         counttask++;
         document.cookie = "counttask = " + counttask;
 
         /// update binaryTask
-        binaryTask[IDproblem] = '1';
+        binaryTask[index[IDproblem]] = '1';
 
         rankup();
     }
@@ -107,12 +108,12 @@ function checkTask()
 
 function rankup()
 {
-    expOfUser = expOfUser + 15 + 2 * (rank[IDproblem] - rank10[IDproblem] * 5);
+    expOfUser = expOfUser + 15 + 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 5);
 }
 
 function rankdown() 
 {
-    expOfUser = expOfUser - 5 - 2 * (rank[IDproblem] - rank10[IDproblem] * 5);
+    expOfUser = expOfUser - 5 - 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 5);
 }
 
 function reload()
@@ -125,7 +126,7 @@ function randomProblem()
     for(var i = 0; i < 30; i++)
     {
         IDproblem = Math.floor((Math.random() * countProblem)) + 1;
-        if(binaryTask[IDproblem] == '0')
+        if(binaryTask[index[IDproblem]] == '0')
         {
             break;
         }
@@ -134,29 +135,29 @@ function randomProblem()
 
 function changeProblem()
 {
-    document.getElementById("problemtask").innerHTML = problem[IDproblem];
-    document.getElementById("dataChoiceA").innerHTML = dataChoiceA[IDproblem];
-    document.getElementById("dataChoiceB").innerHTML = dataChoiceB[IDproblem];
-    document.getElementById("dataChoiceC").innerHTML = dataChoiceC[IDproblem];
-    document.getElementById("dataChoiceD").innerHTML = dataChoiceD[IDproblem];
+    document.getElementById("problemtask").innerHTML = problem[index[IDproblem]];
+    document.getElementById("dataChoiceA").innerHTML = dataChoiceA[index[IDproblem]];
+    document.getElementById("dataChoiceB").innerHTML = dataChoiceB[index[IDproblem]];
+    document.getElementById("dataChoiceC").innerHTML = dataChoiceC[index[IDproblem]];
+    document.getElementById("dataChoiceD").innerHTML = dataChoiceD[index[IDproblem]];
 }
 
 function changeSQL() ///update rank of task
 {
-    rank[IDproblem] = parseInt(100 - parseInt((pass[IDproblem]*100)/alluser[IDproblem]));
-    rank10[IDproblem] = parseInt(rank[IDproblem]/5);
+    rank[index[IDproblem]] = parseInt(100 - parseInt((pass[index[IDproblem]]*100)/alluser[index[IDproblem]]));
+    rank10[index[IDproblem]] = parseInt(rank[index[IDproblem]]/5);
 
-    document.getElementById("score").innerHTML = rank[IDproblem];
+    document.getElementById("score").innerHTML = rank[index[IDproblem]];
 
-    document.cookie = "rank" + countrank + " = " + IDproblem;
+    document.cookie = "rank" + countrank + " = " + index[IDproblem];
     countrank++;
-    document.cookie = "rank" + countrank + " = " + rank[IDproblem];
+    document.cookie = "rank" + countrank + " = " + rank[index[IDproblem]];
     countrank++;
     document.cookie = "rank = " + countrank;
 
-    document.cookie = "rank10" + countrank10 + " = " + IDproblem;
+    document.cookie = "rank10" + countrank10 + " = " + index[IDproblem];
     countrank10++;
-    document.cookie = "rank10" + countrank10 + " = " + rank10[IDproblem];
+    document.cookie = "rank10" + countrank10 + " = " + rank10[index[IDproblem]];
     countrank10++;
     document.cookie = "rank10 = " + countrank10;
 

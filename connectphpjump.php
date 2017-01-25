@@ -1,4 +1,5 @@
 <?php
+
     $con = mysqli_connect("localhost","root","jumpwmk");
     //mysqli_select_db($con, "nschuakuay");
     if(mysqli_select_db($con, "nschuakuay") == FALSE)
@@ -47,6 +48,7 @@
     $choiceC = array();
     $choiceD = array();
     $checkAnswer = array();
+    $index = array();
 
     while($task = mysqli_fetch_array($strtask))
     {
@@ -60,11 +62,13 @@
         $choiceC[$countProblem] = $task["choiceC"];
         $choiceD[$countProblem] = $task["choiceD"];
         $checkAnswer[$countProblem] = $task["checkAnswer"];
+        $index[$countProblem] = $task["ID"];
         $countProblem++;
     }
 
     for($loop = 1; $loop < $countProblem; $loop++)
     {
+        echo "<script> index[$loop] = $index[$loop];</script>";
         echo "<script> problem[$loop] = '$problem[$loop]';</script>";
         echo "<script> dataChoiceA[$loop] = '$choiceA[$loop]';</script>";
         echo "<script> dataChoiceB[$loop] = '$choiceB[$loop]';</script>";
