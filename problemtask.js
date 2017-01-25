@@ -1,3 +1,4 @@
+randomProblem();
 document.getElementById("problemtask").innerHTML = problem[index[IDproblem]];
 document.getElementById("dataChoiceA").innerHTML = dataChoiceA[index[IDproblem]];
 document.getElementById("dataChoiceB").innerHTML = dataChoiceB[index[IDproblem]];
@@ -7,7 +8,6 @@ var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 document.getElementById("score").innerHTML = binaryTask[1];
-randomProblem();
 
 /// function blah blah
 
