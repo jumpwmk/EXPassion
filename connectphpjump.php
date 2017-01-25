@@ -39,7 +39,7 @@
     $countProblem = 1;
     $problem = array();
     $rank = array();
-    $rank20 = array();
+    $rank10 = array();
     $pass = array();
     $alluser = array();
     $choiceA = array();
@@ -52,7 +52,7 @@
     {
         $problem[$countProblem] = $task["task"];
         $rank[$countProblem] = $task["rank"];
-        $rank20[$countProblem] = $task["rank20"];
+        $rank10[$countProblem] = $task["rank10"];
         $pass[$countProblem] = $task["pass"];
         $alluser[$countProblem] = $task["alluser"];
         $choiceA[$countProblem] = $task["choiceA"];
@@ -72,7 +72,7 @@
         echo "<script> dataChoiceD[$loop] = '$choiceD[$loop]';</script>";
         echo "<script> checkAnswer[$loop] = '$checkAnswer[$loop]'</script>";
         echo "<script> rank[$loop] = $rank[$loop];</script>";
-        echo "<script> rank20[$loop] = $rank20[$loop];</script>";
+        echo "<script> rank10[$loop] = $rank10[$loop];</script>";
         echo "<script> pass[$loop] = $pass[$loop];</script>";
         echo "<script> alluser[$loop] = $alluser[$loop];</script>";
         echo "<script> countProblem++; </script>";

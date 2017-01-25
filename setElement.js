@@ -1,7 +1,7 @@
 var tmp;
 var problem = [];
 var rank = [];
-var rank20 = [];
+var rank10 = [];
 var pass = [];
 var alluser = [];
 var dataChoiceA = [];
@@ -20,5 +20,5 @@ var counttask = 0;
 var countUpdateAll = 0;
 var countpass = 0;
 var countrank = 0;
-var countrank20 = 0;
+var countrank10 = 0;
 

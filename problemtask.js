@@ -107,12 +107,12 @@ function checkTask()
 
 function rankup()
 {
-    expOfUser = expOfUser + 15 + 2 * (rank[IDproblem] - rank20[IDproblem] * 5);
+    expOfUser = expOfUser + 15 + 2 * (rank[IDproblem] - rank10[IDproblem] * 5);
 }
 
 function rankdown() 
 {
-    expOfUser = expOfUser - 5 - 2 * (rank[IDproblem] - rank20[IDproblem] * 5);
+    expOfUser = expOfUser - 5 - 2 * (rank[IDproblem] - rank10[IDproblem] * 5);
 }
 
 function reload()
@@ -144,7 +144,7 @@ function changeProblem()
 function changeSQL() ///update rank of task
 {
     rank[IDproblem] = parseInt(100 - parseInt((pass[IDproblem]*100)/alluser[IDproblem]));
-    rank20[IDproblem] = parseInt(rank[IDproblem]/5);
+    rank10[IDproblem] = parseInt(rank[IDproblem]/5);
 
     document.getElementById("score").innerHTML = rank[IDproblem];
 
@@ -154,10 +154,10 @@ function changeSQL() ///update rank of task
     countrank++;
     document.cookie = "rank = " + countrank;
 
-    document.cookie = "rank20" + countrank20 + " = " + IDproblem;
-    countrank20++;
-    document.cookie = "rank20" + countrank20 + " = " + rank20[IDproblem];
-    countrank20++;
-    document.cookie = "rank20 = " + countrank20;
+    document.cookie = "rank10" + countrank10 + " = " + IDproblem;
+    countrank10++;
+    document.cookie = "rank10" + countrank10 + " = " + rank10[IDproblem];
+    countrank10++;
+    document.cookie = "rank10 = " + countrank10;
 
 }

@@ -53,14 +53,14 @@
         }
     }
 
-    /// update rank20
-    $count = $_COOKIE["rank20"];
+    /// update rank10
+    $count = $_COOKIE["rank10"];
     for($i = 0; $i < $count; $i++)
     {
-        $IDproblem = $_COOKIE["rank20$i"];
+        $IDproblem = $_COOKIE["rank10$i"];
         $i++;
-        $update = $_COOKIE["rank20$i"];
-        $mysql = "UPDATE task SET rank20 = $update WHERE ID = $IDproblem";
+        $update = $_COOKIE["rank10$i"];
+        $mysql = "UPDATE task SET rank10 = $update WHERE ID = $IDproblem";
         if (mysqli_query($con, $mysql)) 
         {
             
