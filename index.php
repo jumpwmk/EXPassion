@@ -23,7 +23,7 @@ include "script.php";
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
-                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;EXPassion</p>
+                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a></p>
                     </div>
                     <div class="top-bar-right">
                             <?php

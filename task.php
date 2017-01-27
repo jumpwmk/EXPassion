@@ -20,11 +20,11 @@ include "script.php";
     <body>
         <!-- NAVIGATOR -->
 
-         <div data-sticky-container>
+          <div data-sticky-container>
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
-                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;EXPassion</p>
+                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a></p>
                     </div>
                     <div class="top-bar-right">
                             <?php
@@ -88,7 +88,6 @@ include "script.php";
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        
         <br>
         <div class="row expanded lead-head">
               <div class="head">
@@ -99,12 +98,12 @@ include "script.php";
         <div class="task-container">
             <div class="row expanded">
                 <div class="small-12 medium-12 large-12 columns subject" id = "subject">
+                    KUY ALL
                 </div>
             </div>
             <ul class="menu">
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                 <li><a href="">Problem</a></li>
-                 <li><a href="">Editorial</a></li>
+                 <li class="active"><a href="">Problem</a></li>
+                 <li ><a href="">Editorial</a></li>
             </ul>
 
             <div class="row expanded">
