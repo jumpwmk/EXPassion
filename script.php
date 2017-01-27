@@ -1,17 +1,29 @@
 <script>
-    function clickLeader(){
-  	var KUYALL = 	'<?php $sql = "SELECT id, username ,password FROM members";
-					$result = mysqli_query($success,$sql);
-					while($row = mysqli_fetch_assoc($result))
-					{
-						echo $row["id"]." ".$row["username"]." ".$row["password"]."<br>";
-					} ?>';
-  	document.getElementById("leaderBoard").innerHTML = KUYALL;
-	}
+	var teap = [];
+	for(var i = 0; i < 7; i++)
+		teap[i] = [];
+</script>
 
-	function randomC(){
-		var randomColor = Math.floor(Math.random()*16777215).toString(16);
-		document.write("randomColor");
+<?php
+	for($i = 0; $i < 7; $i++)
+	{
+		$sql = "SELECT  * FROM members ORDER BY rating$i DESC LIMIT 3 ";
+		$result = mysqli_query($success,$sql);
+		$count = 0;
+		while($row = mysqli_fetch_assoc($result))
+		{
+			$idd = $row["id"];
+			echo "<script> teap[$i][$count] = $idd; </script>";
+			$count++;
+		} 
+	}
+?>
+<script>
+    function clickLeader(subject)
+    {
+	  	document.getElementById("leaderBoard0").innerHTML = teap[subject][0];
+	  	document.getElementById("leaderBoard1").innerHTML = teap[subject][1];
+	  	document.getElementById("leaderBoard2").innerHTML = teap[subject][2];
 	}
 
 </script>

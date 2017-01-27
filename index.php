@@ -32,7 +32,7 @@ include "script.php";
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a data-open='regModal' class='button'>Signup</a></li>
+                                                <li><a class='signup' data-reveal-id='myModal'>Signup</a></li>
                                             </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
@@ -40,7 +40,8 @@ include "script.php";
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
                                             <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
-                                        </ul>";
+                                            </ul>;
+                                        </ul></ul>";
                                 }
                             ?>
                     </div>
