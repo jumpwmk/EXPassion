@@ -1,14 +1,13 @@
 <?php
 
-    $con = mysqli_connect("localhost","root","jumpwmk");
-    //mysqli_select_db($con, "nschuakuay");
-    if(mysqli_select_db($con, "nschuakuay") == FALSE)
+    //mysqli_select_db($success, "nschuakuay");
+    if(mysqli_select_db($success, "nschuakuay") == FALSE)
     {
         echo "Kuay";
     }
-    mysqli_set_charset($con, "utf8_unicode_520_ci");
-
-    $struser = mysqli_query($con, "SELECT * FROM members WHERE id = 1");
+    mysqli_set_charset($success, "utf8_unicode_520_ci");
+    $iduser = $_SESSION['id'];
+    $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $iduser");
     if($struser == FALSE) 
     { 
         echo "5555";
@@ -28,7 +27,7 @@
         }
     }
 
-    $strtask = mysqli_query($con, "SELECT * FROM task ");
+    $strtask = mysqli_query($success, "SELECT * FROM task ");
     if($strtask == FALSE) 
     { 
         die(mysqli_error()); // TODO: better error handling
@@ -49,6 +48,8 @@
     $choiceD = array();
     $checkAnswer = array();
     $index = array();
+    // $subject = $_POST['username']; /// choose subject
+    $subject = 0;
 
     while($task = mysqli_fetch_array($strtask))
     {
@@ -81,6 +82,8 @@
         echo "<script> alluser[$loop] = $alluser[$loop];</script>";
         echo "<script> countProblem++; </script>";
     }
+
+    echo "<script>subject = $subject</script>";
 
 
 ?>
