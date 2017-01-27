@@ -28,42 +28,41 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 	if($username !="" and $password != "")
 	{
+
 		$check = "SELECT * FROM members";
-		$cQuery = mysql_query($check) or die("Error check query [".$check."]");
+		$cQuery = $success->query($check) or die("Error check query [".$check."]");
 		$c=0;
-		while($cResult = mysql_fetch_array($cQuery))
+		while($cResult = mysqli_fetch_array($cQuery))
 			{
 				if($cResult['username']==$username)
 				{
 					$c=1;
+					break;
 				}
 			}
 		if($c==0)
 			{
-				$query = "INSERT INTO `members`(`username`,`password`) VALUES ('$username','$password')";
-				mysql_query($query) or die("Error [".$query."]");
-				mkdir("uploads/$username",0777,true);
-				mysql_query("INSERT INTO `u_result` (`username`) VALUES ('$username') ");
-				mysql_query("INSERT INTO `u_score` (`username`) VALUES ('$username') ");
-				?>
-				<center><h1>Register Successful!</h1>
-				<h3><a href="index.html">Go Back</a></h3>
-			</center>
-				<?php	
+				$query = "INSERT INTO members (username,password) VALUES ('$username','$password')";
+				$success->query($query) or die("Error [".$query."]");
 			}
-		else
-		{
-		?><center><h1><?echo "Error! Username already in use!";?></h1>
-		<h3><a href="register.html">Go back</a></h3></center>
-		<?php
+		else{
+			echo "
+		<script>
+		alert('Error, contract administrator 주소요!!!');
+		window.location.replace('index.php');
+		</script>
+		";
 		}
 	}
-	else
-	{
-		?><center><h1><?echo "Error! Clean field!";?></h1>
-		<h3><a href="register.html">Go back</a></h3></center>
-		<?php
-	}?>
+	else{
+		echo "
+		<script>
+		alert('Error, contract administrator 주소요!!!');
+		window.location.replace('index.php');
+		</script>
+		";
+	}
+?>
 </div>
 </div>
 </div>

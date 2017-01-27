@@ -39,7 +39,8 @@ include "script.php";
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li ><a href='logout.php'><i class='fi-lock'></i></a></li>    
+                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
+                                            </ul>;
                                         </ul></ul>";
                                 }
                             ?>
@@ -82,12 +83,29 @@ include "script.php";
                             <a href="#" class="button ">Sign Up</a></br>
                         </div>
                     </div>
-                </div>
-                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-        
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="scale-in-up" data-animation-out="scale-out-down">
+            <div class="row">
+                <div class="small-6 large-centered columns">
+                        <h1 class="welcome">Register Todas</h1>
+                        <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
+                                <legend>Username</legend>
+                                <input type="text" name="username" id="username" placeholder="username" class="small-10">
+                                <legend>Password</legend>
+                                <input type="password" name="password" id="password" placeholder="password" class="small-10">
+                                <button class="button" type="submit" name="submit">Submit</button>
+                        </form>
+                </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <!-- HERO SECTION -->
         <div class="hero">
                 <div class="orbit-container">
