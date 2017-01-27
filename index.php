@@ -32,7 +32,7 @@ include "script.php";
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a class='signup' data-reveal-id='myModal'>Signup</a></li>
+                                                <li><a data-open='regModal'>Signup</a></li>
                                             </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
