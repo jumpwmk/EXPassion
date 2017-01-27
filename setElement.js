@@ -16,6 +16,7 @@ var EXPOfUser = 0;
 var id = 0;
 var IDproblem = 1;
 var countProblem = 0;
+var subject = 0;
 
 var counttask = 0;
 var countUpdateAll = 0;

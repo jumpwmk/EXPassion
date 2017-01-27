@@ -7,7 +7,7 @@
         $i++;
         $update = $_COOKIE["alluser$i"];
         $mysql = "UPDATE task SET alluser = $update WHERE ID = $IDproblem";
-        if (mysqli_query($con, $mysql)) 
+        if (mysqli_query($success, $mysql)) 
         {
             // echo "eiei";
         }
@@ -25,7 +25,7 @@
         $i++;
         $update = $_COOKIE["pass$i"];
         $mysql = "UPDATE task SET pass = $update WHERE ID = $IDproblem";
-        if (mysqli_query($con, $mysql)) 
+        if (mysqli_query($success, $mysql)) 
         {
             // echo "eiei";
         }
@@ -43,7 +43,7 @@
         $i++;
         $update = $_COOKIE["rank$i"];
         $mysql = "UPDATE task SET rank = $update WHERE ID = $IDproblem";
-        if (mysqli_query($con, $mysql)) 
+        if (mysqli_query($success, $mysql)) 
         {
             
         }
@@ -61,7 +61,7 @@
         $i++;
         $update = $_COOKIE["rank10$i"];
         $mysql = "UPDATE task SET rank10 = $update WHERE ID = $IDproblem";
-        if (mysqli_query($con, $mysql)) 
+        if (mysqli_query($success, $mysql)) 
         {
             
         }
@@ -74,7 +74,7 @@
     $rankOfUser = $_COOKIE["rankOfUser"];
     $idUser = 1;
     $mysql = "UPDATE members SET level = $rankOfUser WHERE ID = $idUser";
-    if (mysqli_query($con, $mysql)) 
+    if (mysqli_query($success, $mysql)) 
     {
         
     }
@@ -86,7 +86,7 @@
     $expOfUser = $_COOKIE["expOfUser"];
     $idUser = 1;
     $mysql = "UPDATE members SET exp = $expOfUser WHERE ID = $idUser";
-    if (mysqli_query($con, $mysql)) 
+    if (mysqli_query($success, $mysql)) 
     {
         
     }
@@ -103,7 +103,7 @@
         $binaryTask[ $j ] = '1';
     }
     $mysql = "UPDATE members SET task = $binaryTask WHERE ID = $idUser";
-    if (mysqli_query($con, $mysql)) 
+    if (mysqli_query($success, $mysql)) 
     {
         
     }

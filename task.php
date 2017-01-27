@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-include "script.php";
+
 ?>
     <html class="no-js" lang="en" dir="ltr">
     <head>
@@ -39,7 +39,7 @@ include "script.php";
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='inline-list hide-for-small-only account-action'>
-                                            <li class='islogged'>Hi! ".$_SESSION['username']."</li>
+                                            <li class='islogged'>Hi! ".$_SESSION["username"]."</li>
                                             <li ><i class='fi-lock'></i></li>    
                                         </ul>";
                                 }
@@ -100,8 +100,7 @@ include "script.php";
         <!-- MAIN CONTENT-->
         <div class="task-container">
             <div class="row expanded">
-                <div class="small-12 medium-12 large-12 columns subject">
-                    KUY RAI A
+                <div class="small-12 medium-12 large-12 columns subject" id = "subject">
                 </div>
             </div>
             <div class="row expanded">
@@ -111,10 +110,23 @@ include "script.php";
             </div>
             <div class="row expanded">
                 <div class="small-9 medium-9 large-9 columns main-problem">
-                    problem naja
+                    <legend id = "problemtask"></legend>
+                    <input type="radio" name="setOfChoice" id="choiceA" required><label><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceB" ><label><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceC" ><label><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceD" ><label><p onclick = "check(3)" id = "dataChoiceD"> </p></label></br>
+                    <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
+                    <a onclick="reload()" class="button expanded" >Reload !!!</a>
+                    <p>score</p> <p id = "score"></p>
                 </div>
                 <div class="small-3 medium-3 large-3 columns main-problem problem-info">
-                    problem info naja
+                    Difficulty: <i class="" id = "star1"></i>
+                    <i class="" id = "star2"></i>
+                    <i class="" id = "star3"></i>
+                    <i class="" id = "star4"></i>
+                    <i class="" id = "star5"></i>
+                    <p id = "pass"></p>
+                    <p id = "alluser"></p>
                 </div> 
             </div>
         </div>
@@ -145,6 +157,20 @@ include "script.php";
                 </div>
             </div>
         </footer>
+
+        <script src="setElement.js"></script>
+
+        <?php
+            echo "The time is " . date("h:i:sa");
+            include 'connectphpjump.php';
+        ?>
+
+        <script src="problemtask.js"></script>
+
+        <?php 
+            include 'updatescore.php';
+        ?> 
+
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>

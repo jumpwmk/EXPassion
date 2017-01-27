@@ -6,14 +6,15 @@
 	$objQuery = mysqli_query($success,$strSQL);
 	$objResult = mysqli_fetch_array($objQuery);
 	echo mysqli_error();
-	if(!$objResult and $action=="")
+	if(!$objResult and $action == "")
 	{
 		$message = "wrong username or password";
 		echo "<script type='text/javascript'>alert('$message');history.go(-1);</script>";
 	}
 	else
 	{
-		$_SESSION["username"] = $usernamee; 
+		$_SESSION["username"] = $usernamee;
+		$_SESSION["id"] = $objResult["id"];
 		header("location:index.php");
 		exit();		
 	}
