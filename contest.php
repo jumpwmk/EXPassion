@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 include "script.php";
+
 ?>
     <html class="no-js" lang="en" dir="ltr">
     <head>
@@ -19,7 +20,7 @@ include "script.php";
     <body>
         <!-- NAVIGATOR -->
 
-        <div data-sticky-container>
+          <div data-sticky-container>
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
@@ -39,8 +40,7 @@ include "script.php";
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
-                                            </ul>;
+                                            <li ><a href='logout.php'><i class='fi-lock'></i></a></li>    
                                         </ul></ul>";
                                 }
                             ?>
@@ -83,98 +83,50 @@ include "script.php";
                             <a href="#" class="button ">Sign Up</a></br>
                         </div>
                     </div>
-            </div>
-            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
-        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="scale-in-up" data-animation-out="scale-out-down">
-            <div class="row">
-                <div class="small-6 large-centered columns">
-                        <h1 class="welcome">Register Todas</h1>
-                        <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
-                                <legend>Username</legend>
-                                <input type="text" name="username" id="username" placeholder="username" class="small-10">
-                                <legend>Password</legend>
-                                <input type="password" name="password" id="password" placeholder="password" class="small-10">
-                                <button class="button" type="submit" name="submit">Submit</button>
-                        </form>
                 </div>
+                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <!-- HERO SECTION -->
-        <div class="hero">
-                <div class="orbit-container">
-                    <div class="orbit-container" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-                        <ul class="orbit-container">
-                            <li class="orbit-slide is-active">
-                                <img class="orbit-img-top" src="img/underconstruction.jpg">
-                            </li>
-                        </ul>
-                        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
-                        <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
-                     
-                    </div>
-                </div>
-        </div>
-        <!-- MAIN CONTENT -->
         <br>
-        <div class="main-content">
-            <div class="sell-direct">
-                <div class="row expanded">
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/books.png">
-                        <br>
-                        <div class="row">
-                            <h2 class="philo">Task</h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/exam.png">
-                        <br>
-                        <div class="row">
-                            <h2 class="philo">Train your self</h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/business.png">
-                        <br>
-                        <div class="row">
-                            <h3 class="philo">Compete with the others<h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                      <img src="img/medal.png"><br>
-                      <div class="row"> <h3 class="philo">Earn acheivement<h2> </div>
-                    </div>
+        <div class="row expanded lead-head">
+              <div class="head">
+                 Is this easy mode?
+              </div>
+        </div>
+        <!-- MAIN CONTENT-->
+        <div class="task-container">
+            <div class="row expanded">
+                <div class="small-12 medium-12 large-12 columns subject" id = "subject">
+                    subject name
                 </div>
             </div>
-            <!-- LeaderBoard -->
-            <div class="row expanded lead-head">
-                <div class="head">
-                    Leaderboard
+            <div class="row expanded">
+                <div class="small-1 medium-1 large-1 columns">
+                    <br><br><br><br><br><a href=""><i class="fi-arrow-left ar-button"></i></a>
                 </div>
-            </div>
-            <div class="leaderboard">
-                <div class="row expanded">
-                    <div class="large-3 medium-3 small-3 columns lead-menu">
-                        <div class="row math"   ><a onclick="clickLeader()" class="leader-text">Math</a></div>
-                        <div class="row phys"   ><a class="leader-text">Physics</a></div>
-                        <div class="row chem"   ><a class="leader-text">Chemistry</a></div>
-                        <div class="row bio"    ><a class="leader-text">Biology</a></div>
-                        <div class="row eng"    ><a class="leader-text">English</a></div>
-                        <div class="row social" ><a class="leader-text">Social Study</a></div>
-                    </div>
-                    <div class="large-9 medium-3 small-3 columns leader-text">
-                        <div class="rank" id="leaderBoard">
-
-                        </div>
-                    </div>
+                <div class="small-10 medium-10 large-10 columns main-problem">
+                    <legend id = "problemtask"></legend>
+                    <input type="radio" name="setOfChoice" id="choiceA" required><label><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceB" ><label><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceC" ><label><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
+                    <input type="radio" name="setOfChoice" id="choiceD" ><label><p onclick = "check(3)" id = "dataChoiceD"> </p></label></br>
+                    
+                </div>
+                <div class="small-1 medium-1 large-1 columns">
+                    <br><br><br><br><br><a href=""><i class="fi-arrow-right ar-button"></i><a>
                 </div>
             </div>
         </div>
-        <br>
+        <div class="row submit_reload expanded">
+            <div class="small-8 medium-8 large-8 columns">&nbsp;</div>
+            <div class="small-2 medium-2 large-2 columns">
+                <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
+            </div>
+            <div class="small-2 medium-2 large-2 columns">
+                <a onclick="reload()" class="button expanded" >Reload !!!</a>
+            </div>
+        </div>
         <!-- FOOTER -->
         <footer class="footer">
             <div class="row full-width">
@@ -202,6 +154,9 @@ include "script.php";
                 </div>
             </div>
         </footer>
+
+      
+
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>
