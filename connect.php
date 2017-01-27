@@ -1,7 +1,7 @@
 <?
 $user = 'root';
 $password = 'root';
-$db = 'EXPassion';
+$db = 'expassion';
 $host = 'localhost';
 $success = mysqli_connect( 
    $host,
@@ -9,4 +9,5 @@ $success = mysqli_connect(
    $password, 
    $db
 );
+session_start();
 ?>

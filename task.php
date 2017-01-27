@@ -91,75 +91,33 @@ include "script.php";
                 </button>
             </div>
         
-        <!-- HERO SECTION -->
-        <div class="hero">
-                <div class="orbit-container">
-                    <div class="orbit-container" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
-                        <ul class="orbit-container">
-                            <li class="orbit-slide is-active">
-                                <img class="orbit-img-top" src="img/underconstruction.jpg">
-                            </li>
-                        </ul>
-                        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
-                        <button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
-                     
-                    </div>
-                </div>
-        </div>
-        <!-- MAIN CONTENT -->
         <br>
-        <div class="main-content">
-            <div class="sell-direct">
-                <div class="row expanded">
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/books.png">
-                        <br>
-                        <div class="row">
-                            <h2 class="philo">Study</h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/exam.png">
-                        <br>
-                        <div class="row">
-                            <h2 class="philo">Train your self</h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                        <img src="img/business.png">
-                        <br>
-                        <div class="row">
-                            <h3 class="philo">Compete with the others<h2></div>
-                    </div>
-                    <div class="small-12 medium-2 large-3 columns philo-box">
-                      <img src="img/medal.png"><br>
-                      <div class="row"> <h3 class="philo">Earn acheivement<h2> </div>
-                    </div>
+        <div class="row expanded lead-head">
+              <div class="head">
+                 Let's do that again!
+              </div>
+        </div>
+        <!-- MAIN CONTENT-->
+        <div class="task-container">
+            <div class="row expanded">
+                <div class="small-12 medium-12 large-12 columns subject">
+                    KUY RAI A
                 </div>
             </div>
-            <!-- LeaderBoard -->
-            <div class="row expanded lead-head">
-                <div class="head">
-                    Leaderboard
+            <div class="row expanded">
+                <div class="main-nav">
+                    kuy
                 </div>
             </div>
-            <div class="leaderboard">
-                <div class="row expanded">
-                    <div class="large-3 medium-3 small-3 columns lead-menu">
-                        <div class="row math"   ><a onclick="clickLeader()" class="leader-text">Math</a></div>
-                        <div class="row phys"   ><a class="leader-text">Physics</a></div>
-                        <div class="row chem"   ><a class="leader-text">Chemistry</a></div>
-                        <div class="row bio"    ><a class="leader-text">Biology</a></div>
-                        <div class="row eng"    ><a class="leader-text">English</a></div>
-                        <div class="row social" ><a class="leader-text">Social Study</a></div>
-                    </div>
-                    <div class="large-9 medium-3 small-3 columns leader-text">
-                        <div class="rank" id="leaderBoard">
-
-                        </div>
-                    </div>
+            <div class="row expanded">
+                <div class="small-9 medium-9 large-9 columns main-problem">
+                    problem naja
                 </div>
+                <div class="small-3 medium-3 large-3 columns main-problem problem-info">
+                    problem info naja
+                </div> 
             </div>
         </div>
-        <br>
         <!-- FOOTER -->
         <footer class="footer">
             <div class="row full-width">
