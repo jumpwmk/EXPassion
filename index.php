@@ -49,7 +49,7 @@ include "script.php";
             </div>
         </div>
         <!-- REVEAL -->
-        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
+        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog" data-animation-in="fade-in" data-animation-out="fade-out">
             <div class="row">
                 <div class="large-6 columns auth-plain">
                     <div class="signup-panel left-solid">
@@ -89,7 +89,7 @@ include "script.php";
             </button>
         </div>
 
-        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="scale-in-up" data-animation-out="scale-out-down">
+        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
             <div class="row">
                 <div class="small-6 large-centered columns">
                         <h1 class="welcome">Register Todas</h1>

@@ -291,6 +291,13 @@ div .social:hover{
   padding-top:10px;
 
 }
+.task-container .table{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.task-container table{
+  margin-top: 20px;
+}
 .ar-button{
   color: #2B2A2C;
   font-size: 55px;
@@ -298,7 +305,7 @@ div .social:hover{
   margin-left: 20px;
 }
 .main-problem{
-   
+  
     margin : 30px auto;
 }
 .submit_reload{

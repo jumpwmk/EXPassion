@@ -20,7 +20,7 @@ include "script.php";
     <body>
         <!-- NAVIGATOR -->
 
-          <div data-sticky-container>
+        <div data-sticky-container>
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
@@ -33,14 +33,15 @@ include "script.php";
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a class='signup' data-reveal-id='myModal'>Signup</a></li>
+                                                <li><a data-open='regModal'>Signup</a></li>
                                             </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li ><a href='logout.php'><i class='fi-lock'></i></a></li>    
+                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
+                                            </ul>;
                                         </ul></ul>";
                                 }
                             ?>
@@ -49,7 +50,7 @@ include "script.php";
             </div>
         </div>
         <!-- REVEAL -->
-        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog">
+        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog" data-animation-in="fade-in" data-animation-out="fade-out">
             <div class="row">
                 <div class="large-6 columns auth-plain">
                     <div class="signup-panel left-solid">
@@ -83,11 +84,29 @@ include "script.php";
                             <a href="#" class="button ">Sign Up</a></br>
                         </div>
                     </div>
-                </div>
-                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="row">
+                <div class="small-6 large-centered columns">
+                        <h1 class="welcome">Register Todas</h1>
+                        <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
+                                <legend>Username</legend>
+                                <input type="text" name="username" id="username" placeholder="username" class="small-10">
+                                <legend>Password</legend>
+                                <input type="password" name="password" id="password" placeholder="password" class="small-10">
+                                <button class="button" type="submit" name="submit">Submit</button>
+                        </form>
+                </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <br>
         <div class="row expanded lead-head">
               <div class="head">
