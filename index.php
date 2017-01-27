@@ -40,7 +40,7 @@ include "script.php";
                                 {
                                     echo "<ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li ><i class='fi-lock'></i></li>    
+                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
                                         </ul>";
                                 }
                           
