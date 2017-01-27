@@ -1,5 +1,6 @@
 <?php
 include "connect.php";
+include "script.php";
 
 ?>
     <html class="no-js" lang="en" dir="ltr">
@@ -19,33 +20,30 @@ include "connect.php";
     <body>
         <!-- NAVIGATOR -->
 
-        <div data-sticky-container>
+         <div data-sticky-container>
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
                         <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;EXPassion</p>
                     </div>
                     <div class="top-bar-right">
-                        <ul class="menu">
                             <?php
 
                                 if(!isset($_SESSION['username']))
                                 {
-                                    echo    "<ul class='inline-list hide-for-small-only account-action'>
+                                    echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a class='signup'  data-reveal-id='myModal'>Signup</a></li>
-                                            </ul>";
+                                                <li><a class='signup' data-reveal-id='myModal'>Signup</a></li>
+                                            </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
                                 {
-                                    echo "<ul class='inline-list hide-for-small-only account-action'>
-                                            <li class='islogged'>Hi! ".$_SESSION["username"]."</li>
-                                            <li ><i class='fi-lock'></i></li>    
-                                        </ul>";
+                                    echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
+                                            <li class='islogged'>Hi! ".$_SESSION['username']."</li>
+                                            <li ><a href='logout.php'><i class='fi-lock'></i></a></li>    
+                                        </ul></ul>";
                                 }
-                          
                             ?>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -58,16 +56,16 @@ include "connect.php";
                         <p class="welcome">Registered Users</p>
                         <form name="form1" id="form" action="check_login.php" enctype="multipart/form-data" method="POST">
                             <div class="row collapse">
-                                <div class="small-2  columns">
-                                    <span class="prefix"><i class="fi-torso-female"></i></span>
+                                <div class="small-2  columns log-icon">
+                                    <span class="prefix"><i class="fi-torso-female fi-lock-b"></i></span>
                                 </div>
                                 <div class="small-10  columns">
                                     <input type="text" name="username" id="username" placeholder="username">
                                 </div>
                             </div>
                             <div class="row collapse">
-                                <div class="small-2 columns ">
-                                    <span class="prefix"><i class="fi-lock"></i></span>
+                                <div class="small-2 columns log-icon">
+                                    <span class="prefix"><i class="fi-lock fi-lock-b"></i></span>
                                 </div>
                                 <div class="small-10 columns ">
                                     <input type="password" name="password" id="password" placeholder="password">
@@ -103,13 +101,14 @@ include "connect.php";
                 <div class="small-12 medium-12 large-12 columns subject" id = "subject">
                 </div>
             </div>
+            <ul class="menu">
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                 <li><a href="">Problem</a></li>
+                 <li><a href="">Editorial</a></li>
+            </ul>
+
             <div class="row expanded">
-                <div class="main-nav">
-                    kuy
-                </div>
-            </div>
-            <div class="row expanded">
-                <div class="small-9 medium-9 large-9 columns main-problem">
+                <div class="small-8 medium-8 large-8 columns main-problem">
                     <legend id = "problemtask"></legend>
                     <input type="radio" name="setOfChoice" id="choiceA" required><label><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
                     <input type="radio" name="setOfChoice" id="choiceB" ><label><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
@@ -119,7 +118,7 @@ include "connect.php";
                     <a onclick="reload()" class="button expanded" >Reload !!!</a>
                     <p>score</p> <p id = "score"></p>
                 </div>
-                <div class="small-3 medium-3 large-3 columns main-problem problem-info">
+                <div class="small-3 medium-3 large-3 columns problem-info">
                     Difficulty: <i class="" id = "star1"></i>
                     <i class="" id = "star2"></i>
                     <i class="" id = "star3"></i>
