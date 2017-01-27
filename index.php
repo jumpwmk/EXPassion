@@ -26,26 +26,23 @@ include "script.php";
                         <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;EXPassion</p>
                     </div>
                     <div class="top-bar-right">
-                        <ul class="menu">
                             <?php
 
                                 if(!isset($_SESSION['username']))
                                 {
-                                    echo    "<ul class='inline-list hide-for-small-only account-action'>
+                                    echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a class='signup'  data-reveal-id='myModal'>Signup</a></li>
-                                            </ul>";
+                                                <li><a data-open='regModal' class='button'>Signup</a></li>
+                                            </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
                                 {
-                                    echo "<ul class='inline-list hide-for-small-only account-action'>
+                                    echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
                                             <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
                                         </ul>";
                                 }
-                          
                             ?>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -58,16 +55,16 @@ include "script.php";
                         <p class="welcome">Registered Users</p>
                         <form name="form1" id="form" action="check_login.php" enctype="multipart/form-data" method="POST">
                             <div class="row collapse">
-                                <div class="small-2  columns">
-                                    <span class="prefix"><i class="fi-torso-female"></i></span>
+                                <div class="small-2  columns log-icon">
+                                    <span class="prefix"><i class="fi-torso-female fi-lock-b"></i></span>
                                 </div>
                                 <div class="small-10  columns">
                                     <input type="text" name="username" id="username" placeholder="username">
                                 </div>
                             </div>
                             <div class="row collapse">
-                                <div class="small-2 columns ">
-                                    <span class="prefix"><i class="fi-lock"></i></span>
+                                <div class="small-2 columns log-icon">
+                                    <span class="prefix"><i class="fi-lock fi-lock-b"></i></span>
                                 </div>
                                 <div class="small-10 columns ">
                                     <input type="password" name="password" id="password" placeholder="password">
@@ -85,12 +82,29 @@ include "script.php";
                             <a href="#" class="button ">Sign Up</a></br>
                         </div>
                     </div>
-                </div>
-                <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
-        
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="scale-in-up" data-animation-out="scale-out-down">
+            <div class="row">
+                <div class="small-6 large-centered columns">
+                        <h1 class="welcome">Register Todas</h1>
+                        <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
+                                <legend>Username</legend>
+                                <input type="text" name="username" id="username" placeholder="username" class="small-10">
+                                <legend>Password</legend>
+                                <input type="password" name="password" id="password" placeholder="password" class="small-10">
+                                <button class="button" type="submit" name="submit">Submit</button>
+                        </form>
+                </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <!-- HERO SECTION -->
         <div class="hero">
                 <div class="orbit-container">
@@ -115,7 +129,7 @@ include "script.php";
                         <img src="img/books.png">
                         <br>
                         <div class="row">
-                            <h2 class="philo">Study</h2></div>
+                            <h2 class="philo">Task</h2></div>
                     </div>
                     <div class="small-12 medium-2 large-3 columns philo-box">
                         <img src="img/exam.png">
