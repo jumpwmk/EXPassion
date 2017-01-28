@@ -158,7 +158,7 @@ function changeSQL() ///update rank of task
     rank[index[IDproblem]] = parseInt(100 - parseInt((pass[index[IDproblem]]*100)/alluser[index[IDproblem]]));
     rank10[index[IDproblem]] = parseInt(rank[index[IDproblem]]/5);
 
-    document.getElementById("score").innerHTML = rank[index[IDproblem]];
+    document.getElementById("score").innerHTML = expOfUser;
 
     document.cookie = "rank" + countrank + " = " + index[IDproblem];
     countrank++;

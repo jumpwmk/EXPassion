@@ -1,12 +1,19 @@
 <?php
 
+    // $subject = $_POST['username']; /// choose subject
+    $subject = 0;
+    if(!$_SESSION['id'])
+        header("location: index.php");
+    else
+        $iduser = $_SESSION['id'];
+    
     //mysqli_select_db($success, "nschuakuay");
     if(mysqli_select_db($success, "nschuakuay") == FALSE)
     {
         echo "Kuay";
     }
     mysqli_set_charset($success, "utf8_unicode_520_ci");
-    $iduser = $_SESSION['id'];
+
     $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $iduser");
     if($struser == FALSE) 
     { 
@@ -16,8 +23,8 @@
 
     while($task = mysqli_fetch_array($struser))
     {
-        $rankOfUser = $task["level"];
-        $expOfUser = $task["exp"];
+        $rankOfUser = $task["level$subject"];
+        $expOfUser = $task["exp$subject"];
         $binaryTask = $task["task"];
         echo "<script> rankOfUser = $rankOfUser;</script>";
         echo "<script> expOfUser = $expOfUser; </script>";
@@ -48,8 +55,6 @@
     $choiceD = array();
     $checkAnswer = array();
     $index = array();
-    // $subject = $_POST['username']; /// choose subject
-    $subject = 0;
 
     while($task = mysqli_fetch_array($strtask))
     {

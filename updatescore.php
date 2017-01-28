@@ -1,4 +1,5 @@
 <?php
+
     /// update alluser
     $count = $_COOKIE["alluser"];
     for($i = 0; $i < $count; $i++)
@@ -72,8 +73,7 @@
     }
 
     $rankOfUser = $_COOKIE["rankOfUser"];
-    $idUser = 1;
-    $mysql = "UPDATE members SET level = $rankOfUser WHERE ID = $idUser";
+    $mysql = "UPDATE members SET level$subject = $rankOfUser WHERE ID = $idUser";
     if (mysqli_query($success, $mysql)) 
     {
         
@@ -84,8 +84,7 @@
     }
 
     $expOfUser = $_COOKIE["expOfUser"];
-    $idUser = 1;
-    $mysql = "UPDATE members SET exp = $expOfUser WHERE ID = $idUser";
+    $mysql = "UPDATE members SET exp$subject = $expOfUser WHERE ID = $idUser";
     if (mysqli_query($success, $mysql)) 
     {
         
@@ -96,7 +95,6 @@
     }
 
     $counttask = $_COOKIE["counttask"];
-    $idUser = 1;
     for($i = 0; $i < $counttask; $i++)
     {
         $j = $_COOKIE["task$i"];
