@@ -179,6 +179,7 @@ include "script.php";
                         <div class="row bio"    ><a class="leader-text">Biology</a></div>
                         <div class="row eng"    ><a class="leader-text">English</a></div>
                         <div class="row social" ><a class="leader-text">Social Study</a></div>
+                        <div class="row thai"   ><a class="leader-text">Thai</a></div>
                     </div>
                     <div class="large-9 medium-3 small-3 columns leader-text">
                         <div class="rank" id="leaderBoard">
