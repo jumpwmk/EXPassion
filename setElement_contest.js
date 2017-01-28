@@ -15,6 +15,7 @@ var countProblem = 0;
 var subject = 0;
 var ans = [];
 var correctanswer = [];
+var y,m,d,h,mi,s;
 
 var counttask = 0;
 var countUpdateAll = 0;

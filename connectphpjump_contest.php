@@ -74,5 +74,27 @@
 
     echo "<script>subject = $subject</script>";
 
+    if(mysqli_select_db($success, "nschuakuay") == FALSE)
+    {
+        echo "Kuay";
+    }
+    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = 1");
+    if($strcontest == FALSE) 
+    { 
+        echo "5555";
+        die(mysqli_error()); // TODO: better error handling
+    }
+
+    while($contest = mysqli_fetch_array($strcontest))
+    {
+        $datetime = $contest["end"];
+        echo "<script>y = '$datetime[0]'+'$datetime[1]'+'$datetime[2]'+'$datetime[3]';</script>";
+        echo "<script>m = '$datetime[5]'+'$datetime[6]';</script>";
+        echo "<script>d = '$datetime[8]'+'$datetime[9]';</script>";
+        echo "<script>h = '$datetime[11]'+'$datetime[12]';</script>";
+        echo "<script>mi = '$datetime[14]'+'$datetime[15]';</script>";
+        echo "<script>s = '$datetime[17]'+'$datetime[18]';</script>";
+        echo "<script>m = parseInt(m) - 1;</script>";
+    }
 
 ?>

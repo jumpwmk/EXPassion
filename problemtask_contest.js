@@ -6,7 +6,7 @@ var arrsubject = ["Math","English","Social Study","Physics","Chemistry","Biology
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-document.getElementById("subject").innerHTML = arrsubject[subject];
+// document.getElementById("subject").innerHTML = arrsubject[subject];
 
 for(var i = 1; i <= countProblem; i++)
 {
@@ -52,8 +52,9 @@ function changeProblem()
 
 function countdown() //countdown
 {
+    document.getElementById('subject').innerHTML = m; 
     var timeA = new Date(); // date now
-    var timeB = new Date(2017,0,29,10,7,0,0); //year month day hour minute second millisecond
+    var timeB = new Date(y,m,d,h,mi,s,0); //year month day hour minute second millisecond
     var timeDifference = timeB.getTime() - timeA.getTime();   
     if(timeDifference >= 0)
     {
@@ -69,7 +70,7 @@ function countdown() //countdown
         showPart.innerHTML = "เหลือเวลา " + day + " วัน " + hour + " ชั่วโมง " + minute + " นาที " + second + " วินาที"; 
         if(day == 0 && hour == 0 && minute == 0 && second == 0)
         {
-            showPart.innerHTML = "หมดเวลาการแข่งขัน";
+            window.alert = "หมดเวลาการแข่งขัน";
             location.reload();
             clearInterval(iCountDown); // cancel 
         }
