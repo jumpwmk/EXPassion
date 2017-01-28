@@ -129,6 +129,19 @@ include "script.php";
         </div>
         <!-- MAIN CONTENT-->
         <div class="task-container">
+            <div class="row expanded">
+                <div class="select-sbj expanded">
+                    <div class="sbj">
+                        <div class="large-1 columns math "><a href="#">Math</a></div>
+                        <div class="large-2 columns phys"><a href="#">Physics</a></div>
+                        <div class="large-2 columns chem"><a href="#">Chemistry</a></div>
+                        <div class="large-2 columns bio"><a href="#">Biology</a></div>
+                        <div class="large-2 columns eng"><a href="#">English</a></div>
+                        <div class="large-2 columns social"><a href="#">Social Study</a></div>
+                        <div class="large-1 columns thai"><a href="#">Thai</a></div>
+                    </div>
+                </div>
+            </div>
             <div class="row expanded table">
                 <table>
                     <thead>
