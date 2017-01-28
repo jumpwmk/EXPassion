@@ -15,6 +15,15 @@
   font-size: 20px;
   margin-left: 30px;
 }
+.nav-to{
+  padding-left: 20px;
+  padding-right: 20px;
+  border-left: 1px solid white;
+}
+.dummy-nav-to{
+  padding-left: 20px;
+  padding-right: 20px;
+}
 .reveal{
     font-family: 'Raleway', sans-serif;
 }
@@ -28,6 +37,12 @@
   font-size:1.2rem;
   color: white;
   font-family: 'Raleway', sans-serif;
+}
+.timer{
+  text-align: left;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  color : black;
 }
 .lead-head .head{
   font-family: 'Indie Flower', cursive;
@@ -175,6 +190,9 @@ div .social:hover{
     margin-top: 3px;
     margin-bottom : 3px;
   
+}
+.top-bar-left li{
+  color : black;
 }
 .top-bar {
     background-color: #191C1D; 

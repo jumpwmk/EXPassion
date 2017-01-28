@@ -17,13 +17,27 @@ include "connect.php";
     </head>
 
     <body>
-        <!-- NAVIGATOR -->
+       <!-- NAVIGATOR -->
 
-          <div data-sticky-container>
+        <div data-sticky-container>
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
-                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a></p>
+                        <ul class="dropdown" data-dropdown-menu>
+                            <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a>
+                                <?php
+                                    if (isset($_SESSION['username']))
+                                    {
+                                    echo "<a class='dummy-nav-to'></a>
+                                          <a href='task.php' class='dummy-nav-to'>Task</a>
+                                          <a href='#' class='nav-to'>Dynamic</a>
+                                          <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                    }  
+                                ?>
+
+                            </p>
+                        </ul>
+
                     </div>
                     <div class="top-bar-right">
                             <?php
@@ -32,14 +46,15 @@ include "connect.php";
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
                                                 <li><a data-open='myModal'>Login</a></li>
-                                                <li><a class='signup' data-reveal-id='myModal'>Signup</a></li>
+                                                <li><a data-open='regModal'>Signup</a></li>
                                             </ul></ul>";
                                 }
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
                                             <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li ><a href='logout.php'><i class='fi-lock'></i></a></li>    
+                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
+                                            </ul>;
                                         </ul></ul>";
                                 }
                             ?>
@@ -118,7 +133,7 @@ include "connect.php";
             </div>
         </div>
         <div class="row submit_reload expanded">
-            <div class="small-8 medium-8 large-8 columns">&nbsp;</div>
+            <div class="small-8 medium-8 large-8 columns"><p class="timer">Timer :  </p></div>
             <div class="small-2 medium-2 large-2 columns">
                 <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
             </div>

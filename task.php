@@ -24,7 +24,21 @@ include "script.php";
             <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
                 <div class="top-bar">
                     <div class="top-bar-left">
-                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a></p>
+                        <ul class="dropdown" data-dropdown-menu>
+                            <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a>
+                                <?php
+                                    if (isset($_SESSION['username']))
+                                    {
+                                    echo "<a class='dummy-nav-to'></a>
+                                          <a href='task.php' class='dummy-nav-to'>Task</a>
+                                          <a href='#' class='nav-to'>Dynamic</a>
+                                          <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                    }  
+                                ?>
+
+                            </p>
+                        </ul>
+
                     </div>
                     <div class="top-bar-right">
                             <?php
