@@ -1,5 +1,6 @@
 <?php
     $subject = 0;
+    $contestgroup = 1;
 
     //mysqli_select_db($success, "nschuakuay");
     if(mysqli_select_db($success, "nschuakuay") == FALSE)
@@ -7,8 +8,8 @@
         echo "Kuay";
     }
     mysqli_set_charset($success, "utf8_unicode_520_ci");
-    $iduser = $_SESSION['id'];
-    $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $iduser");
+    $idUser = $_SESSION['id'];
+    $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $idUser");
     if($struser == FALSE) 
     { 
         echo "5555";
@@ -78,7 +79,7 @@
     {
         echo "Kuay";
     }
-    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = 1");
+    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = $contestgroup");
     if($strcontest == FALSE) 
     { 
         echo "5555";

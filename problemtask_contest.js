@@ -6,7 +6,7 @@ var arrsubject = ["Math","English","Social Study","Physics","Chemistry","Biology
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-// document.getElementById("subject").innerHTML = arrsubject[subject];
+document.getElementById("subject").innerHTML = arrsubject[subject];
 
 for(var i = 1; i <= countProblem; i++)
 {
@@ -16,23 +16,45 @@ for(var i = 1; i <= countProblem; i++)
 
 /// function blah blah
 
-function check(index)
+function setcookie2(name, value1, value2)
 {
-    document.getElementById(choice[ index ]).checked = true;
+    document.cookie = name + value1 + " = " + value2;
+}
+
+function setcookie1(name, value)
+{
+    document.cookie = name + " = " + value;
+}
+
+function checkans(it)
+{
+    /// isCorrect ?
+    var answer = checkAnswer[index[IDproblem]];
+    if(alphabet[ it ] == answer)
+    {
+        correctanswer[IDproblem] = 1;
+        ans[IDproblem] = it;
+    }
+    else
+    {
+        correctanswer[IDproblem] = 0;
+        ans[IDproblem] = it;
+    }
 }
 
 function checkTask() 
 {
     /// update rank
-    for(var i = 1; i < countProblem; i++)
+    for(var i = 1; i <= countProblem; i++)
     {
         if(correctanswer[i] == 1)
         {
-            document.cookie = "task" + counttask + " = " + index[i];
+            setcookie2("task",counttask,index[i]);
             counttask++;
-            document.cookie = "counttask = " + counttask;
         }
     }
+    setcookie1("counttask",counttask);
+    alert(counttask);
     reload();
 }
 
@@ -52,7 +74,6 @@ function changeProblem()
 
 function countdown() //countdown
 {
-    document.getElementById('subject').innerHTML = m; 
     var timeA = new Date(); // date now
     var timeB = new Date(y,m,d,h,mi,s,0); //year month day hour minute second millisecond
     var timeDifference = timeB.getTime() - timeA.getTime();   
@@ -66,8 +87,8 @@ function countdown() //countdown
         var l_hour = l_day % 3600;
         var minute = Math.floor(l_hour/60);
         var second = l_hour%60;
-        var showPart = document.getElementById('subject');
-        showPart.innerHTML = "เหลือเวลา " + day + " วัน " + hour + " ชั่วโมง " + minute + " นาที " + second + " วินาที"; 
+        var showPart = document.getElementById('timer');
+        showPart.innerHTML = "Timer: เหลือเวลา " + day + " วัน " + hour + " ชั่วโมง " + minute + " นาที " + second + " วินาที"; 
         if(day == 0 && hour == 0 && minute == 0 && second == 0)
         {
             window.alert = "หมดเวลาการแข่งขัน";
@@ -80,27 +101,6 @@ function countdown() //countdown
 
 function clickright()
 {
-    var check = [];
-    for(var i = 0; i < 4; i++)
-    {
-        check[ i ] = document.getElementById(choice[ i ]).checked;
-    }
-
-    /// isCorrect ?
-    var answer = checkAnswer[index[IDproblem]];
-    for(var i = 0; i < 4; i++)
-    {
-        if((document.getElementById(choice[ i ]).checked == true) && (alphabet[ i ] == answer))
-        {
-            correctanswer[IDproblem] = 1;
-            ans[IDproblem] = i;
-        }
-        if(document.getElementById(choice[ i ]).checked == true)
-        {
-            ans[IDproblem] = i;
-        }
-    }
-
     if(IDproblem == countProblem)
     {
         window.alert('นี่เป็นข้อสุดท้ายยย !');
@@ -124,27 +124,6 @@ function clickright()
 
 function clickleft()
 {
-    var check = [];
-    for(var i = 0; i < 4; i++)
-    {
-        check[ i ] = document.getElementById(choice[ i ]).checked;
-    }
-
-    /// isCorrect ?
-    var answer = checkAnswer[index[IDproblem]];
-    for(var i = 0; i < 4; i++)
-    {
-        if((document.getElementById(choice[ i ]).checked == true) && (alphabet[ i ] == answer))
-        {
-            correctanswer[IDproblem] = 1;
-            ans[IDproblem] = i;
-        }
-        if(document.getElementById(choice[ i ]).checked == true)
-        {
-            ans[IDproblem] = i;
-        }
-    }
-
     if(IDproblem == 1)
     {
         window.alert('ข้อแรก !');
