@@ -148,9 +148,9 @@ include "contest_list_fetch.php";
                     <thead>
                         <tr>
                             <th width="50">#</th>
-                            <th>Contest </th>
-                            <th width="150">Start</th>
-                            <th width="150">Finish</th>
+                            <th width="850">Contest </th>
+                            <th width="200">Start</th>
+                            <th width="200">Finish</th>
                             <th width="100">Writer</th>
                         </tr>
                     </thead>
