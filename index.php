@@ -193,7 +193,7 @@ include "script.php";
                             <div class="row expanded rank1">
                                 <div class="large-3 medium-3 small-3 columns">&nbsp;</div>
                                  <div class="large-6 medium-6 small-6 columns">
-                                    <p class="seat">No.1</p>
+                                    <p class="seat1">No.1</p>
                                 </div>
                                 <div class="large-3 medium-3 small-3 columns">&nbsp;</div>
                                 
@@ -202,10 +202,10 @@ include "script.php";
                                 
                             </div>
                             <div class="large-6 medium-6 small-6 columns">
-                                 <p class="seat">No.2</p>
+                                 <p class="seat23">No.2</p>
                             </div>
                             <div class="large-6 medium-6 small-6 columns">
-                                 <p class="seat">No.3</p>
+                                 <p class="seat23">No.3</p>
                             </div>
                             <div class="large-6 medium-6 small-6 columns rank2" id="leaderBoard1">
 

@@ -157,9 +157,15 @@
   height: 50px;
   margin: 20px;
 }
-.seat{
+.seat1{
   color:black;
   font-size: 40px;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+}
+.seat23{
+   color:black;
+  font-size: 35px;
   margin: 0 auto;
   border-bottom: 1px solid black;
 }
