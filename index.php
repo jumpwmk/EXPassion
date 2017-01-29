@@ -173,18 +173,47 @@ include "script.php";
             <div class="leaderboard">
                 <div class="row expanded">
                     <div class="large-3 medium-3 small-3 columns lead-menu">
-                        <div class="row math"   ><a onclick="clickLeader()" class="leader-text">Math</a></div>
-                        <div class="row phys"   ><a class="leader-text">Physics</a></div>
-                        <div class="row chem"   ><a class="leader-text">Chemistry</a></div>
-                        <div class="row bio"    ><a class="leader-text">Biology</a></div>
-                        <div class="row eng"    ><a class="leader-text">English</a></div>
-                        <div class="row social" ><a class="leader-text">Social Study</a></div>
-                        <div class="row thai"   ><a class="leader-text">Thai</a></div>
+                        <br>
+                        <div class="row math"   ><a onclick="clickLeader(0)" class="leader-text">Math</a></div>
+                        <div class="row phys"   ><a onclick="clickLeader(1)" class="leader-text">Physics</a></div>
+                        <div class="row chem"   ><a onclick="clickLeader(2)" class="leader-text">Chemistry</a></div>
+                        <div class="row bio"    ><a onclick="clickLeader(3)" class="leader-text">Biology</a></div>
+                        <div class="row eng"    ><a onclick="clickLeader(4)" class="leader-text">English</a></div>
+                        <div class="row social" ><a onclick="clickLeader(5)" class="leader-text">Social Study</a></div>
+                        <div class="row thai"   ><a onclick="clickLeader(6)" class="leader-text">Thai</a></div>
                     </div>
-                    <div class="large-9 medium-3 small-3 columns leader-text">
-                        <div class="rank" id="leaderBoard">
+                    <div class="large-9 medium-9 small-9 columns leader-text">
+                        <div class="row expanded lead-subject" >
+                                <div class="head" id="leaderSubject">
+                                    Let's see who get this.
+                                </div>
+                            </div>
+                        <div class="rank">
+                            
+                            <div class="row expanded rank1">
+                                <div class="large-3 medium-3 small-3 columns">&nbsp;</div>
+                                 <div class="large-6 medium-6 small-6 columns">
+                                    <p class="seat">No.1</p>
+                                </div>
+                                <div class="large-3 medium-3 small-3 columns">&nbsp;</div>
+                                
+                                 <div class="large-12 medium-12 small-12 columns"  id="leaderBoard0">
+                                </div>
+                                
+                            </div>
+                            <div class="large-6 medium-6 small-6 columns">
+                                 <p class="seat">No.2</p>
+                            </div>
+                            <div class="large-6 medium-6 small-6 columns">
+                                 <p class="seat">No.3</p>
+                            </div>
+                            <div class="large-6 medium-6 small-6 columns rank2" id="leaderBoard1">
 
-                        </div>
+                            </div>
+                            <div class="large-6 medium-6 small-6 columns  rank3" id="leaderBoard2">
+
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>

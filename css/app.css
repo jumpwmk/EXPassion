@@ -147,13 +147,38 @@
 .leaderboard{
   background-color: #F3F3F3;
   text-align: center;
-  height : 385px;
+  height : 485px;
 }
 .rank{
-  background-color: white;
   text-align: center;
-  margin:20px;
-  height: 350px;
+}
+.rank img{
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+}
+.seat{
+  color:black;
+  font-size: 40px;
+  margin: 0 auto;
+  border-bottom: 1px solid black;
+}
+.lead-subject .head{
+  font-family: 'Indie Flower', cursive;
+  color : black;
+  font-size: 40px;
+  margin: 10px;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.rank1{
+  color : black;
+  font-size: 60px;
+  padding: 10px;
+}
+.rank2,.rank3{
+  color: black;
+  font-size: 40px;
 }
 .leader-text{
   font-family: 'Raleway', sans-serif;

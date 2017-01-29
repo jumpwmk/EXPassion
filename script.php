@@ -12,8 +12,8 @@
 		$count = 0;
 		while($row = mysqli_fetch_assoc($result))
 		{
-			$idd = $row["id"];
-			echo "<script> teap[$i][$count] = $idd; </script>";
+			$idd = $row["username"];
+			echo "<script> teap[$i][$count] = '$idd'; </script>";
 			$count++;
 		} 
 	}
@@ -21,9 +21,11 @@
 <script>
     function clickLeader(subject)
     {
-	  	document.getElementById("leaderBoard0").innerHTML = teap[subject][0];
-	  	document.getElementById("leaderBoard1").innerHTML = teap[subject][1];
-	  	document.getElementById("leaderBoard2").innerHTML = teap[subject][2];
+    	var SubjectName = ['Math','Physics','Chemistry','Biology','English','Social Study','Thai'];
+    	document.getElementById("leaderSubject").innerHTML = SubjectName[subject];
+	  	document.getElementById("leaderBoard0").innerHTML = "<marquee scrollamount='10'><img src=img/crown.png>"+teap[subject][0]+"<img src=img/crown.png><marquee>";
+	  	document.getElementById("leaderBoard1").innerHTML = "<img src=img/monarchy.png>"+teap[subject][1]+"<img src=img/monarchy.png>";
+	  	document.getElementById("leaderBoard2").innerHTML = "<img src=img/rook.png>"+teap[subject][2]+"<img src=img/rook.png>";
 	}
 
 </script>
