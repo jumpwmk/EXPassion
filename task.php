@@ -146,9 +146,7 @@ include "script.php";
                     <input type="radio" name="setOfChoice" id="choiceB" ><label><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
                     <input type="radio" name="setOfChoice" id="choiceC" ><label><p onclick = "check(2)" id = "dataChoiceC"> </p></label></br>
                     <input type="radio" name="setOfChoice" id="choiceD" ><label><p onclick = "check(3)" id = "dataChoiceD"> </p></label></br>
-                    <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
-                    <a onclick="reload()" class="button expanded" >Reload !!!</a>
-                    <p>score</p> <p id = "score"></p>
+                    
                 </div>
                 <div class="small-3 medium-3 large-3 columns problem-info">
                     Difficulty: <i class="" id = "star1"></i>
@@ -160,6 +158,14 @@ include "script.php";
                     <p id = "alluser"></p>
                 </div> 
             </div>
+
+        </div>
+        <div class="row submit_reload expanded">
+            <div class="small-8 medium-8 large-8 columns">Score <p id = "score"></p></div>
+            <div class="small-2 medium-2 large-2 columns"><a onclick="checkTask()" class="button expanded" >Submit !!!</a></div>
+            <div class="small-2 medium-2 large-2 columns"><a onclick="reload()" class="button expanded" >Reload !!!</a></div>
+            
+                    
         </div>
         <!-- FOOTER -->
         <footer class="footer">

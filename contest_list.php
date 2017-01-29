@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 include "script.php";
+include "contest_list_fetch.php";
 
 ?>
     <html class="no-js" lang="en" dir="ltr">
@@ -154,27 +155,8 @@ include "script.php";
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-                            <td>Content Goes Here</td>
-                            <td>Content Goes Here</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                            <td>Content Goes Here</td>
-                            <td>Content Goes Here</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                            <td>Content Goes Here</td>
-                            <td>Content Goes Here</td>
-                            <td></td>
-                        </tr>
+                   
+                       
                     </tbody>
                 </table>
             </div>
@@ -210,6 +192,7 @@ include "script.php";
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>
         <script src="js/app.js"></script>
+             <?php math_table(); ?>
     </body>
 
     </html>
