@@ -133,13 +133,13 @@ include "contest_list_fetch.php";
             <div class="row expanded">
                 <div class="select-sbj expanded">
                     <div class="sbj">
-                        <div class="large-1 columns math "><a href="#">Math</a></div>
-                        <div class="large-2 columns phys"><a href="#">Physics</a></div>
-                        <div class="large-2 columns chem"><a href="#">Chemistry</a></div>
-                        <div class="large-2 columns bio"><a href="#">Biology</a></div>
-                        <div class="large-2 columns eng"><a href="#">English</a></div>
-                        <div class="large-2 columns social"><a href="#">Social Study</a></div>
-                        <div class="large-1 columns thai"><a href="#">Thai</a></div>
+                        <div class="large-1 columns math "><a onclick="table(0)">Math</a></div>
+                        <div class="large-2 columns phys"><a onclick="table(1)">Physics</a></div>
+                        <div class="large-2 columns chem"><a onclick="table(2)">Chemistry</a></div>
+                        <div class="large-2 columns bio"><a  onclick="table(3)">Biology</a></div>
+                        <div class="large-2 columns eng"><a  onclick="table(4)">English</a></div>
+                        <div class="large-2 columns social"><a onclick="table(5)">Social Study</a></div>
+                        <div class="large-1 columns thai"><a onclick="table(6)">Thai</a></div>
                     </div>
                 </div>
             </div>
@@ -151,11 +151,11 @@ include "contest_list_fetch.php";
                             <th>Contest </th>
                             <th width="150">Start</th>
                             <th width="150">Finish</th>
-                            <th width="100">Participants</th>
+                            <th width="100">Writer</th>
                         </tr>
                     </thead>
-                    <tbody>
-                   
+                    <tbody id='tbody'>
+
                        
                     </tbody>
                 </table>
@@ -192,7 +192,29 @@ include "contest_list_fetch.php";
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>
         <script src="js/app.js"></script>
-             <?php math_table(); ?>
+        <!-- NOT DISPLAY-->
+        <div id="dom-target-0" style="display: none;">
+            <?php table(0);?>
+        </div>
+        <div id="dom-target-1" style="display: none;">
+            <?php table(1);?>
+        </div>
+        <div id="dom-target-2" style="display: none;">
+            <?php table(2);?>
+        </div>
+        <div id="dom-target-3" style="display: none;">
+            <?php table(3);?>
+        </div>
+        <div id="dom-target-4" style="display: none;">
+            <?php table(4);?>
+        </div>
+        <div id="dom-target-5" style="display: none;">
+            <?php table(5);?>
+        </div>
+        <div id="dom-target-6" style="display: none;">
+            <?php table(6);?>
+        </div>
+
     </body>
 
     </html>
