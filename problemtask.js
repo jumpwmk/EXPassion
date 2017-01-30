@@ -5,7 +5,7 @@ var arrsubject = ["Math","English","Social Study","Physics","Chemistry","Biology
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-document.getElementById("score").innerHTML = expOfUser;
+document.getElementById("score").innerHTML = "Score : "+expOfUser;
 document.getElementById("subject").innerHTML = arrsubject[subject];
 
 /// function blah blah
@@ -85,7 +85,7 @@ function checkTask()
 
     changeSQL();
 
-    document.getElementById("score").innerHTML = expOfUser;
+    document.getElementById("score").innerHTML = "Score : "+expOfUser;
     
     randomProblem();
     changeProblem();
@@ -144,8 +144,8 @@ function changeProblem()
     document.getElementById("dataChoiceB").innerHTML = dataChoiceB[index[IDproblem]];
     document.getElementById("dataChoiceC").innerHTML = dataChoiceC[index[IDproblem]];
     document.getElementById("dataChoiceD").innerHTML = dataChoiceD[index[IDproblem]];
-    document.getElementById("pass").innerHTML = "pass: " + pass[index[IDproblem]];
-    document.getElementById("alluser").innerHTML = "alluser: " + alluser[index[IDproblem]];
+    document.getElementById("pass").innerHTML = "Pass: " + pass[index[IDproblem]];
+    document.getElementById("alluser").innerHTML = "Alluser: " + alluser[index[IDproblem]];
     var tmp = rank10[index[IDproblem]];
     var stringstar = ["star1","star2","star3","star4","star5"];
     for(var i = 0; i < 5; i++)
