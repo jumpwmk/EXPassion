@@ -148,8 +148,8 @@ include "connect.php";
         <!-- MAIN CONTENT-->
         <div class="task-container">
             <div class="row expanded">
-                <div class="small-12 medium-12 large-12 columns subject">
-                    subject name
+                <div class="small-12 medium-12 large-12 columns subject" id="subject">
+
                 </div>
             </div>
             <div class="row expanded">
@@ -170,7 +170,7 @@ include "connect.php";
             </div>
         </div>
         <div class="row submit_reload expanded">
-            <div class="small-8 medium-8 large-8 columns"><p class="timer" id="subject">Timer :  </p></div>
+            <div class="small-8 medium-8 large-8 columns"><p class="timer" id="timer"></p></div>
             <div class="small-2 medium-2 large-2 columns">
                 <a onclick="checkTask()" class="button expanded" >Submit !!!</a>
             </div>

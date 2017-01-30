@@ -1,6 +1,6 @@
 <?php
-    $subject = 0;
-    $contestgroup = 3;
+    $subject = $_GET['subject_id'];
+    $contestgroup = $_GET['contest_id'];
 
     //mysqli_select_db($success, "nschuakuay");
     if(mysqli_select_db($success, "nschuakuay") == FALSE)
@@ -29,7 +29,7 @@
         }
     }
 
-    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = 3");
+    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = $contestgroup");
     if($strtask == FALSE) 
     { 
         echo "bye";
