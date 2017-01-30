@@ -65,11 +65,11 @@ function reload()
 
 function changeProblem()
 {
-    document.getElementById("problemtask").innerHTML = problem[index[IDproblem]];
-    document.getElementById("dataChoiceA").innerHTML = dataChoiceA[index[IDproblem]];
-    document.getElementById("dataChoiceB").innerHTML = dataChoiceB[index[IDproblem]];
-    document.getElementById("dataChoiceC").innerHTML = dataChoiceC[index[IDproblem]];
-    document.getElementById("dataChoiceD").innerHTML = dataChoiceD[index[IDproblem]];   
+    document.getElementById("problemtask").innerHTML = problem[IDproblem];
+    document.getElementById("dataChoiceA").innerHTML = dataChoiceA[IDproblem];
+    document.getElementById("dataChoiceB").innerHTML = dataChoiceB[IDproblem];
+    document.getElementById("dataChoiceC").innerHTML = dataChoiceC[IDproblem];
+    document.getElementById("dataChoiceD").innerHTML = dataChoiceD[IDproblem];   
 }
 
 function countdown() //countdown
@@ -101,7 +101,7 @@ function countdown() //countdown
 
 function clickright()
 {
-    if(IDproblem == countProblem)
+    if(IDproblem == countProblem - 1)
     {
         window.alert('นี่เป็นข้อสุดท้ายยย !');
     }

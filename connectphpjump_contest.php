@@ -1,9 +1,12 @@
 <?php
-    $contest_id = $_GET['contest_id'];
-    $subject_id = $_GET['subject_id'];
+    $subject = 0;
+    $contestgroup = 3;
 
     //mysqli_select_db($success, "nschuakuay");
-    
+    if(mysqli_select_db($success, "nschuakuay") == FALSE)
+    {
+        echo "Kuay";
+    }
     mysqli_set_charset($success, "utf8_unicode_520_ci");
     $idUser = $_SESSION['id'];
     $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $idUser");
@@ -26,9 +29,10 @@
         }
     }
 
-    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = $contest_id");
+    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = 3");
     if($strtask == FALSE) 
     { 
+        echo "bye";
         die(mysqli_error()); // TODO: better error handling
     }
 
@@ -60,21 +64,24 @@
 
     for($loop = 1; $loop < $countProblem; $loop++)
     {
-
-        echo "<script> index[$loop] = $index[$loop];</script>";
-        echo "<script> problem[$loop] = '$problem[$loop]';</script>";
-        echo "<script> dataChoiceA[$loop] = '$choiceA[$loop]';</script>";
-        echo "<script> dataChoiceB[$loop] = '$choiceB[$loop]';</script>";
-        echo "<script> dataChoiceC[$loop] = '$choiceC[$loop]';</script>";
-        echo "<script> dataChoiceD[$loop] = '$choiceD[$loop]';</script>";
-        echo "<script> checkAnswer[$loop] = '$checkAnswer[$loop]'</script>";
-        echo "<script> countProblem++; </script>";
+        echo "<script> index[$loop] = $index[$loop]; </script>";
+        echo "<script> problem[$loop] = '$problem[$loop]'; </script>";
+        echo "<script> dataChoiceA[$loop] = '$choiceA[$loop]'; </script>";
+        echo "<script> dataChoiceB[$loop] = '$choiceB[$loop]'; </script>";
+        echo "<script> dataChoiceC[$loop] = '$choiceC[$loop]'; </script>";
+        echo "<script> dataChoiceD[$loop] = '$choiceD[$loop]'; </script>";
+        echo "<script> checkAnswer[$loop] = '$checkAnswer[$loop]'; </script>";
     }
 
-    echo "<script>subject = $subject</script>";
+    echo "<script> countProblem = $countProblem; </script>";
 
-    
-    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = $contest_id");
+    echo "<script> subject = $subject; </script>";
+
+    if(mysqli_select_db($success, "nschuakuay") == FALSE)
+    {
+        echo "Kuay";
+    }
+    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = $contestgroup");
     if($strcontest == FALSE) 
     { 
         echo "5555";
@@ -84,13 +91,13 @@
     while($contest = mysqli_fetch_array($strcontest))
     {
         $datetime = $contest["end"];
-        echo "<script>y = '$datetime[0]'+'$datetime[1]'+'$datetime[2]'+'$datetime[3]';</script>";
-        echo "<script>m = '$datetime[5]'+'$datetime[6]';</script>";
-        echo "<script>d = '$datetime[8]'+'$datetime[9]';</script>";
-        echo "<script>h = '$datetime[11]'+'$datetime[12]';</script>";
-        echo "<script>mi = '$datetime[14]'+'$datetime[15]';</script>";
-        echo "<script>s = '$datetime[17]'+'$datetime[18]';</script>";
-        echo "<script>m = parseInt(m) - 1;</script>";
+        echo "<script> y = '$datetime[0]'+'$datetime[1]'+'$datetime[2]'+'$datetime[3]'; </script>";
+        echo "<script> m = '$datetime[5]'+'$datetime[6]'; </script>";
+        echo "<script> d = '$datetime[8]'+'$datetime[9]'; </script>";
+        echo "<script> h = '$datetime[11]'+'$datetime[12]'; </script>";
+        echo "<script> mi = '$datetime[14]'+'$datetime[15]'; </script>";
+        echo "<script> s = '$datetime[17]'+'$datetime[18]'; </script>";
+        echo "<script> m = parseInt(m) - 1; </script>";
     }
 
 ?>
