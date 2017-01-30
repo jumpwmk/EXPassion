@@ -19,9 +19,11 @@
 		$str = "SELECT * FROM contest WHERE grouptask = $subject "; 
 		$query = mysqli_query($success,$str);
 		$_final = "";
+		$countt =0;
 		while($_result = mysqli_fetch_array($query))
 		{
-			$_final = $_final."_tr _td".$_result['ID'].
+			$countt +=1;
+			$_final = $_final."_tr _td".$countt.
 			"_dd _nn".$_result['name'].
 			"_dd _td".$_result['start'].
 			"_dd _td".$_result['end'].
