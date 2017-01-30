@@ -1,7 +1,6 @@
 <?php
 include "connect.php";
 include "script.php";
-
 ?>
     <html class="no-js" lang="en" dir="ltr">
     <head>
@@ -42,7 +41,6 @@ include "script.php";
                     </div>
                     <div class="top-bar-right">
                             <?php
-
                                 if(!isset($_SESSION['username']))
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
@@ -136,7 +134,7 @@ include "script.php";
             </div>
             <ul class="menu">
                  <li class="active"><a href="">Problem</a></li>
-                 <li ><a href="">Editorial</a></li>
+                 <li ><a onclick = "downloadpdf()" id = "pdf" href = "" download>Editorial</a></li>
             </ul>
 
             <div class="row expanded">
