@@ -10,9 +10,14 @@ document.getElementById("subject").innerHTML = arrsubject[subject];
 
 /// function blah blah
 
-function check(index)
+function check(it)
 {
-    document.getElementById(choice[ index ]).checked = true;
+    document.getElementById(choice[ it ]).checked = true;
+}
+
+function downloadpdf()
+{
+    document.getElementById("pdf").href = "/pdf/" + index[IDproblem] + ".pdf";
 }
 
 function checkTask() 
