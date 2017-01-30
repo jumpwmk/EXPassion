@@ -1,12 +1,9 @@
 <?php
-    $subject = 0;
-    $contestgroup = 1;
+    $contest_id = $_GET['contest_id'];
+    $subject_id = $_GET['subject_id'];
 
     //mysqli_select_db($success, "nschuakuay");
-    if(mysqli_select_db($success, "nschuakuay") == FALSE)
-    {
-        echo "Kuay";
-    }
+    
     mysqli_set_charset($success, "utf8_unicode_520_ci");
     $idUser = $_SESSION['id'];
     $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $idUser");
@@ -29,7 +26,7 @@
         }
     }
 
-    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = 0");
+    $strtask = mysqli_query($success, "SELECT * FROM task WHERE grouptask = $contest_id");
     if($strtask == FALSE) 
     { 
         die(mysqli_error()); // TODO: better error handling
@@ -63,6 +60,7 @@
 
     for($loop = 1; $loop < $countProblem; $loop++)
     {
+
         echo "<script> index[$loop] = $index[$loop];</script>";
         echo "<script> problem[$loop] = '$problem[$loop]';</script>";
         echo "<script> dataChoiceA[$loop] = '$choiceA[$loop]';</script>";
@@ -75,11 +73,8 @@
 
     echo "<script>subject = $subject</script>";
 
-    if(mysqli_select_db($success, "nschuakuay") == FALSE)
-    {
-        echo "Kuay";
-    }
-    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = $contestgroup");
+    
+    $strcontest = mysqli_query($success, "SELECT * FROM contest WHERE ID = $contest_id");
     if($strcontest == FALSE) 
     { 
         echo "5555";
