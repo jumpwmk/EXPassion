@@ -30,7 +30,6 @@ include "script.php";
                                     {
                                     echo "<a class='dummy-nav-to'></a>
                                           <a href='task.php' class='dummy-nav-to'>Task</a>
-                                          <a href='#' class='nav-to'>Dynamic</a>
                                           <a href='contest_list.php' class='nav-to'>Contest</a>";
                                     }  
                                 ?>
@@ -40,7 +39,9 @@ include "script.php";
 
                     </div>
                     <div class="top-bar-right">
+                        
                             <?php
+
                                 if(!isset($_SESSION['username']))
                                 {
                                     echo    "<ul class='menu menu-ld'><ul class='inline-list hide-for-small-only account-action'>
@@ -51,8 +52,8 @@ include "script.php";
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
-                                            <li class='islogged'>Hi! ".$_SESSION['username']."</li>
-                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><i class='fi-lock'></i></span></li>
+                                            <li class='islogged' data-open='infoModal'><span data-tooltip aria-haspopup='true' data-options='disable_for_touch:true' class='has-tip' title='Lv : Coin : Exp : '><a>".$_SESSION['username']."</a></span></li>
+                                            <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><a><i class='fi-lock'></i></a></span></li>
                                             </ul>;
                                         </ul></ul>";
                                 }
@@ -93,7 +94,7 @@ include "script.php";
                             <p class="welcome"> New User?</p>
                             <p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p>
                             <br>
-                            <a href="#" class="button ">Sign Up</a></br>
+                            <a class="button " data-open='regModal'>Sign Up</a></br>
                         </div>
                     </div>
             </div>
@@ -103,9 +104,10 @@ include "script.php";
         </div>
 
         <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
-            <div class="row">
-                <div class="small-6 large-centered columns">
-                        <h1 class="welcome">Register Todas</h1>
+            <div class="row expanded">
+                 <h1 class="welcome">Register Todas</h1>
+                <div class="large-12 medium-12 small-12 large-centered columns">
+                       
                         <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
                                 <legend>Username</legend>
                                 <input type="text" name="username" id="username" placeholder="username" class="small-10">
@@ -113,6 +115,24 @@ include "script.php";
                                 <input type="password" name="password" id="password" placeholder="password" class="small-10">
                                 <button class="button" type="submit" name="submit">Submit</button>
                         </form>
+                </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="infoModal" class="medium reveal" data-reveal aria-labelledby="info" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="row expanded">
+                <h1 class="welcome">Profile</h1>
+             </div>
+            <div class="row expanded">
+                <div class="large-12 medium-12 small-12 profile-container columns">
+                    Username :<br>
+                    Level : <br>
+                    Exp : <br>
+                    Coins : <br>
+
                 </div>
             </div>
             <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
@@ -138,7 +158,7 @@ include "script.php";
             </ul>
 
             <div class="row expanded">
-                <div class="small-8 medium-8 large-8 columns main-problem">
+                <div class="small-8 medium-8 large-8 columns main-problem-task">
                     <legend id = "problemtask"></legend>
                     <input type="radio" name="setOfChoice" id="choiceA" required><label><p onclick = "check(0)" id = "dataChoiceA"> </p></label></br>
                     <input type="radio" name="setOfChoice" id="choiceB" ><label><p onclick = "check(1)" id = "dataChoiceB"> </p></label></br>
@@ -159,7 +179,7 @@ include "script.php";
 
         </div>
         <div class="row submit_reload expanded">
-            <div class="small-8 medium-8 large-8 columns">Score <p id = "score"></p></div>
+            <div class="small-8 medium-8 large-8 columns"><p class="score" id = "score"></p></div>
             <div class="small-2 medium-2 large-2 columns"><a onclick="checkTask()" class="button expanded" >Submit !!!</a></div>
             <div class="small-2 medium-2 large-2 columns"><a onclick="reload()" class="button expanded" >Reload !!!</a></div>
             

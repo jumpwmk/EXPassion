@@ -15,6 +15,14 @@
   font-size: 20px;
   margin-left: 30px;
 }
+.large-centered{
+  width : 500px;
+}
+.profile-container{
+  width : 700px;
+  margin-left: 20px;
+  font-size: 20px;
+}
 .trname{
   width:850px;
 }
@@ -30,6 +38,13 @@
 .reveal{
     font-family: 'Raleway', sans-serif;
 }
+.welcome{
+   font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .reveal .welcome{
   font-size: 20px;
 }
@@ -40,6 +55,9 @@
   font-size:1.2rem;
   color: white;
   font-family: 'Raleway', sans-serif;
+}
+.islogged a{
+  color: white;
 }
 .timer{
   text-align: left;
@@ -262,6 +280,7 @@ div .thai:hover{
 .top-bar-right,.top-bar-left{
   height: 75px;
 }
+
 .menu{
   background-color: #191C1D;
   width:100%;
@@ -380,8 +399,21 @@ div .thai:hover{
   margin-left: 20px;
 }
 .main-problem{
-    font-size: 25px;
+    font-size: 35px;
     margin : 30px auto;
+}
+.main-problem label{
+  margin-left: 10px;
+  font-size: 20px;
+}
+.main-problem-task{
+  font-size: 25px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.main-problem-task label{
+  margin-left: 10px;
+  font-size: 20px;
 }
 .submit_reload{
   width: 1400px;
@@ -392,6 +424,7 @@ div .thai:hover{
     height: auto;
     min-height: 200px;
     margin:30px;
+    font-size: 25px;
 }
 .main-nav{
   width: 1350px;
@@ -404,4 +437,8 @@ div .thai:hover{
   margin-top: 30px;
   margin-left: 30px;
   margin-bottom: 15px;
+}
+.score{
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
 }
