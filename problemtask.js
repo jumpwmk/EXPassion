@@ -5,7 +5,7 @@ var arrsubject = ["Math","English","Social Study","Physics","Chemistry","Biology
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-document.getElementById("score").innerHTML = "Score : "+expOfUser;
+document.getElementById("score").innerHTML = expOfUser;
 document.getElementById("subject").innerHTML = arrsubject[subject];
 
 /// function blah blah
@@ -85,7 +85,7 @@ function checkTask()
 
     changeSQL();
 
-    document.getElementById("score").innerHTML = "Score : "+expOfUser;
+    document.getElementById("score").innerHTML = expOfUser;
     
     randomProblem();
     changeProblem();
@@ -162,6 +162,7 @@ function changeSQL() ///update rank of task
 {
     rank[index[IDproblem]] = parseInt(100 - parseInt((pass[index[IDproblem]]*100)/alluser[index[IDproblem]]));
     rank10[index[IDproblem]] = parseInt(rank[index[IDproblem]]/5);
+    coin += 5 * rank10[index[IDproblem]];
 
     document.getElementById("score").innerHTML = expOfUser;
 
@@ -176,5 +177,7 @@ function changeSQL() ///update rank of task
     document.cookie = "rank10" + countrank10 + " = " + rank10[index[IDproblem]];
     countrank10++;
     document.cookie = "rank10 = " + countrank10;
+
+    document.cookie = "coin = " + coin;
 
 }

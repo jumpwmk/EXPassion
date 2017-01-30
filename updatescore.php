@@ -109,4 +109,15 @@
     {
        
     }
+
+    $coin = $_COOKIE["coin"];
+    $mysql = "UPDATE members SET coin = $coin WHERE ID = $idUser";
+    if (mysqli_query($success, $mysql)) 
+    {
+        
+    }
+    else 
+    {
+       
+    }
 ?>
