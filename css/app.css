@@ -255,6 +255,18 @@ div .social:hover{
 div .thai:hover{
   background: #745169;
 }
+.half {
+    position:relative;
+}
+.half:after {
+    content:'';
+    position:absolute;
+    z-index:1;
+    background:#E3E3E3;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+}
 .lead-menu div {
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
