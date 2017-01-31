@@ -145,6 +145,19 @@ include "script.php";
                  Let's do that again!
               </div>
         </div>
+         <div class="row expanded">
+                <div class="select-sbj expanded">
+                    <div class="sbj">
+                        <div class="large-1 columns math "><a onclick="table(0)">Math</a></div>
+                        <div class="large-2 columns phys"><a onclick="table(1)">Physics</a></div>
+                        <div class="large-2 columns chem"><a onclick="table(2)">Chemistry</a></div>
+                        <div class="large-2 columns bio"><a  onclick="table(3)">Biology</a></div>
+                        <div class="large-2 columns eng"><a  onclick="table(4)">English</a></div>
+                        <div class="large-2 columns social"><a onclick="table(5)">Social Study</a></div>
+                        <div class="large-1 columns thai"><a onclick="table(6)">Thai</a></div>
+                    </div>
+                </div>
+            </div>
         <!-- MAIN CONTENT-->
         <div class="task-container">
             <div class="row expanded">

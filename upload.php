@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="js/jquery.js"></script>
-<link rel="stylesheet" type="text/css" href="css/css.css" />
+<link rel="stylesheet" href="css/css101.css">
 <script type="text/javascript">
 var count = 0;
 $(function(){
@@ -27,14 +27,14 @@ $(function(){
     //If form was submitted
     if (isset($_POST['btnSubmit'])) {
         //create instance of database class
-        include('connect.php');
+        include('connect_upload.php');
         $db = new mysqli($servername, $username, $password);
         
         if (mysqli_connect_errno()) {
             printf("Connect failed: %s\n", mysqli_connect_error());
             exit();
         }
-        if(mysqli_select_db($db, "nschuakuay"))
+        if(mysqli_select_db($db, "expassion"))
             echo "yes\n";
         else echo "no\n";
         /* return name of current default database */
@@ -145,5 +145,8 @@ $(function(){
 -->
 
 
+        <script src="js/vendor/what-input.js"></script>
+        <script src="js/vendor/foundation.js"></script>
+        <script src="js/app.js"></script>
 </body>
 </html>
