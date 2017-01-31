@@ -1,0 +1,37 @@
+input { 
+	font-size: 0.9em; padding: 5px; border: 1px solid #ccc;  margin: 0; display: block;
+}
+#divTxt { 
+	width:400px; padding: 5px;  
+}
+p a img { 
+	border: none; vertical-align: middle; 
+}
+.spacer {
+	clear: both; height: 10px; 
+}
+.btn { 
+	width: 90px; font-weight: bold; 
+}
+#container { 
+	margin-top: :15px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.form-margin{
+	border: 1px solid #ccc; padding: 2px; 
+}
+.clear {
+	overflow: hidden;width: 100%;
+} 
+.upload-container{
+	width : 1000px;
+	margin : 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.upload-content{
+	width: 900px;
+	margin: 50px;
+}
