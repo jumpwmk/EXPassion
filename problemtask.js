@@ -102,6 +102,30 @@ function checkTask()
             document.cookie = "expOfUser = " + expOfUser;
             reload();
         }
+        else 
+        {
+            expOfUser = 100;
+            document.cookie = "rankOfUser = " + rankOfUser;
+            document.cookie = "expOfUser = " + expOfUser;
+        }
+    }
+    else if( expOfUser < 0 )
+    {
+        if(rankOfUser > 0)
+        {
+            rankOfUser--;
+            expOfUser += 100;
+            window.alert('leveldown');
+            document.cookie = "rankOfUser = " + rankOfUser;
+            document.cookie = "expOfUser = " + expOfUser;
+            reload();
+        }
+        else
+        {
+            expOfUser = 0;
+            document.cookie = "rankOfUser = " + rankOfUser;
+            document.cookie = "expOfUser = " + expOfUser;
+        }
     }
     else
     {
@@ -130,6 +154,8 @@ function randomProblem()
     for(var i = 0; i < 30; i++)
     {
         IDproblem = Math.floor((Math.random() * countProblem)) + 1;
+        if(IDproblem == countProblem)
+            IDproblem--;
         if(binaryTask[index[IDproblem]] == '0')
         {
             break;
