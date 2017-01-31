@@ -1,17 +1,17 @@
 <?php
+    
+    /// choose subject
+    if(!$_GET['subject_id'])
+        $subject = 0;
+    else
+        $subject = $_GET['subject_id'];
 
-    // $subject = $_POST['username']; /// choose subject
-    $subject = 0;
     if(!$_SESSION['id'])
         header("location: index.php");
     else
         $idUser = $_SESSION['id'];
     
     //mysqli_select_db($success, "nschuakuay");
-    if(mysqli_select_db($success, "nschuakuay") == FALSE)
-    {
-        echo "Kuay";
-    }
     mysqli_set_charset($success, "utf8_unicode_520_ci");
 
     $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $idUser");
@@ -36,7 +36,7 @@
         }
     }
 
-    $strtask = mysqli_query($success, "SELECT * FROM task ");
+    $strtask = mysqli_query($success, "SELECT * FROM task WHERE subject = $subject");
     if($strtask == FALSE) 
     { 
         die(mysqli_error()); // TODO: better error handling

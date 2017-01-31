@@ -148,13 +148,13 @@ include "script.php";
          <div class="row expanded">
                 <div class="select-sbj expanded">
                     <div class="sbj">
-                        <div class="large-1 columns math "><a  onclick="ChooseSubject(0)">Math</a></div>
-                        <div class="large-2 columns phys"><a   onclick="ChooseSubject(1)">Physics</a></div>
-                        <div class="large-2 columns chem"><a   onclick="ChooseSubject(2)">Chemistry</a></div>
-                        <div class="large-2 columns bio"><a    onclick="ChooseSubject(3)">Biology</a></div>
-                        <div class="large-2 columns eng"><a    onclick="ChooseSubject(4)">English</a></div>
-                        <div class="large-2 columns social"><a onclick="ChooseSubject(5)">Social Study</a></div>
-                        <div class="large-1 columns thai"><a   onclick="ChooseSubject(6)">Thai</a></div>
+                        <div class="large-1 columns math "><a href='task.php?subject_id=0'>Math</a></div>
+                        <div class="large-2 columns phys"><a href='task.php?subject_id=1'>Physics</a></div>
+                        <div class="large-2 columns chem"><a href='task.php?subject_id=2'>Chemistry</a></div>
+                        <div class="large-2 columns bio"><a href='task.php?subject_id=3' >Biology</a></div>
+                        <div class="large-2 columns eng"><a href='task.php?subject_id=4' >English</a></div>
+                        <div class="large-2 columns social"><a href='task.php?subject_id=5'">Social Study</a></div>
+                        <div class="large-1 columns thai"><a href='task.php?subject_id=6'>Thai</a></div>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@ include "script.php";
         <div class="task-container">
             <div class="row expanded">
                 <div class="small-12 medium-12 large-12 columns subject" id = "subject">
-                    KUY ALL
+
                 </div>
             </div>
             <ul class="menu">

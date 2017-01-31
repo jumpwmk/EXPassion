@@ -2,7 +2,7 @@ IDproblem = 1;
 changeProblem();
 countdown();
 
-var arrsubject = ["Math","English","Social Study","Physics","Chemistry","Biology","Thai"];
+var arrsubject = ["Math","Physics","Chemistry","Biology","English","Social Study","Thai"];
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
