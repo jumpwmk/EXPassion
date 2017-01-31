@@ -220,11 +220,11 @@ $(function() {
                     <select id="category-select" name="category">
                         <option value="">select subject</option>
                         <option value="0">Mathemetics</option>
-                        <option value="1">English</option>
-                        <option value="2">Social</option>
-                        <option value="3">Physics</option>
-                        <option value="4">Chemistry</option>
-                        <option value="5">Biology</option>
+                        <option value="1">Physics</option>
+                        <option value="2">Chemistry</option>
+                        <option value="3">Biology</option>
+                        <option value="4">English</option>
+                        <option value="5">Social Study</option>
                         <option value="6">Thai</option>
                     </select>
                     <div class="spacer"></div>
