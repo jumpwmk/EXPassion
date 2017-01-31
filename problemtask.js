@@ -17,7 +17,25 @@ function check(it)
 
 function downloadpdf()
 {
-    document.getElementById("pdf").href = "/pdf/" + index[IDproblem] + ".pdf";
+    var price = rank10[IDproblem] * 20;
+    if (confirm("Do you want to unlock and read the editorial? \nIt's " + price + " coins") == true) 
+    {
+        if(coin < price)
+        {
+            document.getElementById("pdf").removeAttribute("href");
+            alert('Your coins can\'t buy it');
+        }
+        else
+        {
+            document.getElementById("pdf").href = "/pdf/" + index[IDproblem] + ".pdf";
+            coin -= price;
+            document.cookie = "coin = " + coin;
+        }
+    } 
+    else
+    {
+        document.getElementById("pdf").removeAttribute("href");
+    }
 }
 
 function checkTask() 
@@ -176,10 +194,12 @@ function changeProblem()
     var stringstar = ["star1","star2","star3","star4","star5"];
     for(var i = 0; i < 5; i++)
     {
-        if(2*i + 1 <= tmp)
-            document.getElementById(stringstar[i]).className = "fi-star half";
         if(2*i + 2 <= tmp)
             document.getElementById(stringstar[i]).className = "fi-star";
+        else if(2*i + 1 <= tmp)
+            document.getElementById(stringstar[i]).className = "fi-star half";
+        else
+            document.getElementById(stringstar[i]).className = "";
     }
     
 }

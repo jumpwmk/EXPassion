@@ -96,7 +96,7 @@
       {
           if($binaryTask[$IDproblem[$loop]] == '1')
           {
-            $coin[ $i ] += 50 * $rank10[ $loop ];
+            $coin[ $i ] += 25 * $rank10[ $loop ];
           }
       }
     }

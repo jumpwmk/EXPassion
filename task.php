@@ -167,7 +167,7 @@ include "script.php";
             </div>
             <ul class="menu">
                  <li class="active"><a href="">Problem</a></li>
-                 <li ><a onclick = "downloadpdf()" id = "pdf" href = "" download>Editorial</a></li>
+                 <li ><a onclick = "downloadpdf()" id = "pdf" download>Editorial</a></li>
             </ul>
 
             <div class="row expanded">
