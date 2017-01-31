@@ -33,7 +33,7 @@
     if($checkcontest == 0)
     {
         echo "<script>  alert(\"การแข่งขันยังไม่เริ่ม\");</script>";
-        header("location: index.php");
+        echo "<script>  location.href = 'contest_list.php'; </script>";    
     }
 
     //mysqli_select_db($success, "nschuakuay");
