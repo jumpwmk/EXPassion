@@ -1,12 +1,12 @@
 <?php
     
     /// choose subject
-    if(!$_GET['subject_id'])
+    if(!isset($_GET['subject_id']))
         $subject = 0;
     else
         $subject = $_GET['subject_id'];
 
-    if(!$_SESSION['id'])
+    if(!isset($_SESSION['id']))
         header("location: index.php");
     else
         $idUser = $_SESSION['id'];

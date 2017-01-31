@@ -52,7 +52,7 @@ include "script.php";
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
-                                            <li class='islogged' data-open='infoModal'><span data-tooltip aria-haspopup='true' data-options='disable_for_touch:true' class='has-tip' title='Lv : Coin : Exp : '><a>".$_SESSION['username']."</a></span></li>
+                                            <li class='islogged' data-open='infoModal'><span data-tooltip aria-haspopup='true' data-options='disable_for_touch:true' class='has-tip' title='Lv : Coin : Exp : ' id = \"showscore\" ><a>".$_SESSION['username']."</a></span></li>
                                             <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><a><i class='fi-lock'></i></a></span></li>
                                             </ul>;
                                         </ul></ul>";
@@ -127,7 +127,7 @@ include "script.php";
                 <h1 class="welcome">Profile</h1>
              </div>
             <div class="row expanded">
-                <div class="large-12 medium-12 small-12 profile-container columns">
+                <div class="large-12 medium-12 small-12 profile-container columns" id = "profile_user">
                     Username :<br>
                     Level : <br>
                     Exp : <br>
@@ -135,6 +135,7 @@ include "script.php";
 
                 </div>
             </div>
+            <script src="profile_user.js"></script>
             <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
                 <span aria-hidden="true">&times;</span>
             </button>

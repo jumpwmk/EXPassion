@@ -33,7 +33,7 @@
     if($checkcontest == 0)
     {
         echo "<script>  alert(\"การแข่งขันยังไม่เริ่ม\");</script>";
-        header("location: contest_list.php");
+        header("location: index.php");
     }
 
     //mysqli_select_db($success, "nschuakuay");
@@ -51,6 +51,10 @@
         $rankOfUser = $task["level$subject"];
         $expOfUser = $task["exp$subject"];
         $binaryTask = $task["task"];
+        $coin = $task["coin"];
+        $username = $task["username"];
+        echo "<script> username = \"$username\"; </script>";
+        echo "<script> coin = $coin; </script>";
         echo "<script> rankOfUser = $rankOfUser;</script>";
         echo "<script> EXPOfUser = $expOfUser; </script>";
         for($loop = 0; $loop < 20; $loop++)
