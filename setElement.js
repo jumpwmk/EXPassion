@@ -18,6 +18,7 @@ var IDproblem = 1;
 var countProblem = 1;
 var subject = 0;
 var coin = 0;
+var username = "test";
 
 var counttask = 0;
 var countUpdateAll = 0;

@@ -27,6 +27,8 @@
         $expOfUser = $task["exp$subject"];
         $binaryTask = $task["task"];
         $coin = $task["coin"];
+        $username = $task["username"];
+        echo "<script> username = \"$username\"; </script>";
         echo "<script> coin = $coin; </script>";
         echo "<script> rankOfUser = $rankOfUser;</script>";
         echo "<script> expOfUser = $expOfUser; </script>";

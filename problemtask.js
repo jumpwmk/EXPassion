@@ -7,6 +7,8 @@ var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 document.getElementById("score").innerHTML = expOfUser;
 document.getElementById("subject").innerHTML = arrsubject[subject];
+document.getElementById("profile_user").innerHTML = "Username: " + username + "\<br\>" + "Level: " + rankOfUser + "\<br\>" + "Exp: " + expOfUser + "\<br\>" + "Coins: " + coin + "\<br\>" ;
+document.getElementById("showscore").title = "Lv: " + rankOfUser + " Exp: " + expOfUser + " Coin: " + coin;
 
 /// function blah blah
 
@@ -150,6 +152,8 @@ function checkTask()
         document.cookie = "rankOfUser = " + rankOfUser;
         document.cookie = "expOfUser = " + expOfUser;
     }
+    document.getElementById("profile_user").innerHTML = "Username: " + username + "\<br\>" + "Level: " + rankOfUser + "\<br\>" + "Exp: " + expOfUser + "\<br\>" + "Coins: " + coin + "\<br\>" ;
+    
 }
 
 function rankup()
