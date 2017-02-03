@@ -5,7 +5,7 @@ var arrsubject = ["Math","Physics","Chemistry","Biology","English","Social Study
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-document.getElementById("score").innerHTML = expOfUser;
+document.getElementById("score").innerHTML = rank10[index[IDproblem]];
 document.getElementById("subject").innerHTML = arrsubject[subject];
 document.getElementById("profile_user").innerHTML = "Username: " + username + "\<br\>" + "Level: " + rankOfUser + "\<br\>" + "Exp: " + expOfUser + "\<br\>" + "Coins: " + coin + "\<br\>" ;
 document.getElementById("showscore").title = "Lv: " + rankOfUser + " Exp: " + expOfUser + " Coin: " + coin;
@@ -105,7 +105,7 @@ function checkTask()
 
     changeSQL();
 
-    document.getElementById("score").innerHTML = expOfUser;
+    document.getElementById("score").innerHTML = rank10[index[IDproblem]];
     
     randomProblem();
     changeProblem();
@@ -214,7 +214,7 @@ function changeSQL() ///update rank of task
     rank10[index[IDproblem]] = parseInt(rank[index[IDproblem]]/5);
     coin += 5 * rank10[index[IDproblem]];
 
-    document.getElementById("score").innerHTML = expOfUser;
+    document.getElementById("score").innerHTML = rank10[index[IDproblem]];
 
     document.cookie = "rank" + countrank + " = " + index[IDproblem];
     countrank++;

@@ -163,6 +163,7 @@
         {
           $tmprating += 1/(1 + pow(10.0,($mid - $rating[$j])/400.0));
         }
+        
         if($tmprating == $mean)
         {
           $leftbsearch = $mid;

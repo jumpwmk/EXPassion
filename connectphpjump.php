@@ -14,6 +14,24 @@
     //mysqli_select_db($success, "nschuakuay");
     mysqli_set_charset($success, "utf8_unicode_520_ci");
 
+    $arrcontest = array();
+
+    $strcontest = mysqli_query($success, "SELECT * FROM contest");
+    if($strcontest == FALSE) 
+    { 
+        echo "5555";
+        die(mysqli_error()); // TODO: better error handling
+    }
+
+    while($contest = mysqli_fetch_array($strcontest))
+    {
+        if($contest["status"] == 0)
+            $arrcontest[$contest["ID"]] = 0;
+        else
+            $arrcontest[$contest["ID"]] = 1;
+    }
+
+
     $struser = mysqli_query($success, "SELECT * FROM members WHERE id = $idUser");
     if($struser == FALSE) 
     { 
@@ -38,7 +56,7 @@
         }
     }
 
-    $strtask = mysqli_query($success, "SELECT * FROM task WHERE subject = $subject");
+    $strtask = mysqli_query($success, "SELECT * FROM task WHERE subject = $subject and rank10 = $rankOfUser");
     if($strtask == FALSE) 
     { 
         die(mysqli_error()); // TODO: better error handling
@@ -62,6 +80,10 @@
 
     while($task = mysqli_fetch_array($strtask))
     {
+        $print = $task["grouptask"];
+        if($arrcontest[$task["grouptask"]] == 0)
+            continue;
+        $index[$countProblem] = $task["ID"];
         $problem[$countProblem] = $task["task"];
         $rank[$countProblem] = $task["rank"];
         $rank10[$countProblem] = $task["rank10"];
@@ -72,7 +94,6 @@
         $choiceC[$countProblem] = $task["choiceC"];
         $choiceD[$countProblem] = $task["choiceD"];
         $checkAnswer[$countProblem] = $task["checkAnswer"];
-        $index[$countProblem] = $task["ID"];
         $countProblem++;
     }
 
