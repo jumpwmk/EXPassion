@@ -152,7 +152,7 @@
     $rating[$countuser] = $rating[$countuser - 1];
     for($i = 0; $i < $countuser; $i++)
     {
-      $mean = pow($real[ $i ] * $expected[ $i ],0.50);
+      $mean = pow(pow($real[ $i ],1.6487212707) * $expected[ $i ],3.71828182846);
       $leftbsearch = 0; 
       $rightbsearch = 5000;
       while($rightbsearch - $leftbsearch > pow(10,-5))
@@ -178,7 +178,7 @@
           $leftbsearch = $mid;
         }
       }
-      $change[ $i ] = ($leftbsearch - $rating[ $i ])/2.00;
+      $change[ $i ] = ($leftbsearch - $rating[ $i ])/3.00;
       echo '<p>'."$rating[$i] $temp[$i] $mean $leftbsearch".'</p>';
     }
 
