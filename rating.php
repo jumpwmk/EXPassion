@@ -85,8 +85,8 @@
 
     for($i = 0; $i < $countProblem; $i++)
     {
-      $rank[$i] = floor(100 - floor(($pass[$i]*100)/$alluser[$i]));
-      $rank10[$i] = floor($rank[$i]/5);
+      $rank[$i] = round(100 - round(($pass[$i]*100)/$alluser[$i]));
+      $rank10[$i] = round($rank[$i]/5);
     }
 
     for($i = 0; $i < $countuser; $i++)

@@ -210,8 +210,8 @@ function changeProblem()
 
 function changeSQL() ///update rank of task
 {
-    rank[index[IDproblem]] = parseInt(100 - parseInt((pass[index[IDproblem]]*100)/alluser[index[IDproblem]]));
-    rank10[index[IDproblem]] = parseInt(rank[index[IDproblem]]/5);
+    rank[index[IDproblem]] = Math.round(100 - Math.round((pass[index[IDproblem]]*100)/alluser[index[IDproblem]]));
+    rank10[index[IDproblem]] = Math.round(rank[index[IDproblem]]/5);
     coin += 5 * rank10[index[IDproblem]];
 
     document.getElementById("score").innerHTML = rank10[index[IDproblem]];
