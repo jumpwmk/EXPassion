@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?
+include "connect.php";
+?>
 <html>
 
 <head>
@@ -29,25 +32,30 @@ $(function() {
 
 <body>
     <!-- NAVIGATOR -->
-    <div data-sticky-container>
-        <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
-            <div class="top-bar">
-                <div class="top-bar-left">
-                    <ul class="dropdown" data-dropdown-menu>
-                        <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a>
-                            <?php
+
+        <div data-sticky-container>
+            <div class="sticky" data-sticky data-options=" marginTop: 0; stickyOn: small;">
+                <div class="top-bar">
+                    <div class="top-bar-left">
+                        <ul class="dropdown" data-dropdown-menu>
+                            <p class="menu-text"><img src="img/passion.png">&nbsp;&nbsp;<a href="index.php">EXPassion</a>
+                                <?php
                                     if (isset($_SESSION['username']))
                                     {
                                     echo "<a class='dummy-nav-to'></a>
                                           <a href='task.php' class='dummy-nav-to'>Task</a>
-                                          <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                          <a href='contest_list.php' class='nav-to'>Contest</a>
+                                          <a href='upload.php' class='nav-to'>Upload</a>";
                                     }  
                                 ?>
-                        </p>
-                    </ul>
-                </div>
-                <div class="top-bar-right">
-                    <?php
+
+                            </p>
+                        </ul>
+
+                    </div>
+                    <div class="top-bar-right">
+                        
+                            <?php
 
                                 if(!isset($_SESSION['username']))
                                 {
@@ -59,90 +67,95 @@ $(function() {
                                 else if (isset($_SESSION['username']))
                                 {
                                     echo "<ul class='menu-l menu inline-list'><ul class='inline-list hide-for-small-only account-action'>
-                                            <li class='islogged' data-open='infoModal'><span data-tooltip aria-haspopup='true' data-options='disable_for_touch:true' class='has-tip' title='Lv : Coin : Exp : '><a>".$_SESSION['username']."</a></span></li>
+                                            <li class='islogged' data-open='infoModal'><span data-tooltip aria-haspopup='true' data-options='disable_for_touch:true' class='has-tip' title='Lv : Coin : Exp : ' id = \"showscore\" ><a>".$_SESSION['username']."</a></span></li>
                                             <li><span data-tooltip aria-haspopup='true' class='has-tip' data-disable-hover='false' tabindex='1' title='Logout' onclick='location=\"logout.php\"'><a><i class='fi-lock'></i></a></span></li>
                                             </ul>;
                                         </ul></ul>";
                                 }
                             ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- REVEAL -->
-    <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog" data-animation-in="fade-in" data-animation-out="fade-out">
-        <div class="row">
-            <div class="large-6 columns auth-plain">
-                <div class="signup-panel left-solid">
-                    <p class="welcome">Registered Users</p>
-                    <form name="form1" id="form" action="check_login.php" enctype="multipart/form-data" method="POST">
-                        <div class="row collapse">
-                            <div class="small-2  columns log-icon">
-                                <span class="prefix"><i class="fi-torso-female fi-lock-b"></i></span>
+        <!-- REVEAL -->
+        <div id="myModal" class="large reveal" data-reveal aria-labelledby="login or sign up" aria-hidden="true" role="dialog" data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="row">
+                <div class="large-6 columns auth-plain">
+                    <div class="signup-panel left-solid">
+                        <p class="welcome">Registered Users</p>
+                        <form name="form1" id="form" action="check_login.php" enctype="multipart/form-data" method="POST">
+                            <div class="row collapse">
+                                <div class="small-2  columns log-icon">
+                                    <span class="prefix"><i class="fi-torso-female fi-lock-b"></i></span>
+                                </div>
+                                <div class="small-10  columns">
+                                    <input type="text" name="username" id="username" placeholder="username">
+                                </div>
                             </div>
-                            <div class="small-10  columns">
-                                <input type="text" name="username" id="username" placeholder="username">
+                            <div class="row collapse">
+                                <div class="small-2 columns log-icon">
+                                    <span class="prefix"><i class="fi-lock fi-lock-b"></i></span>
+                                </div>
+                                <div class="small-10 columns ">
+                                    <input type="password" name="password" id="password" placeholder="password">
+                                </div>
                             </div>
+                            <button class="button" type="submit" name="submit">Log In </button>
+                        </form>
+                    </div>
+                </div>
+                    <div class="large-6 columns auth-plain">
+                        <div class="signup-panel newusers">
+                            <p class="welcome"> New User?</p>
+                            <p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p>
+                            <br>
+                            <a class="button " data-open='regModal'>Sign Up</a></br>
                         </div>
-                        <div class="row collapse">
-                            <div class="small-2 columns log-icon">
-                                <span class="prefix"><i class="fi-lock fi-lock-b"></i></span>
-                            </div>
-                            <div class="small-10 columns ">
-                                <input type="password" name="password" id="password" placeholder="password">
-                            </div>
-                        </div>
-                        <button class="button" type="submit" name="submit">Log In </button>
-                    </form>
+                    </div>
+            </div>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="row expanded">
+                 <h1 class="welcome">Register Todas</h1>
+                <div class="large-12 medium-12 small-12 large-centered columns">
+                       
+                        <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
+                                <legend>Username</legend>
+                                <input type="text" name="username" id="username" placeholder="username" class="small-10">
+                                <legend>Password</legend>
+                                <input type="password" name="password" id="password" placeholder="password" class="small-10">
+                                <button class="button" type="submit" name="submit">Submit</button>
+                        </form>
                 </div>
             </div>
-            <div class="large-6 columns auth-plain">
-                <div class="signup-panel newusers">
-                    <p class="welcome"> New User?</p>
-                    <p>By creating an account with us, you will be able to move through the checkout process faster, view and track your orders, and more.</p>
-                    <br>
-                    <a class="button " data-open='regModal'>Sign Up</a></br>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div id="infoModal" class="medium reveal" data-reveal aria-labelledby="info" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
+            <div class="row expanded">
+                <h1 class="welcome">Profile</h1>
+             </div>
+            <div class="row expanded">
+                <div class="large-12 medium-12 small-12 profile-container columns" id = "profile_user">
+                    Username :<br>
+                    Level : <br>
+                    Exp : <br>
+                    Coins : <br>
+
                 </div>
             </div>
+            <script src="profile_user.js"></script>
+            <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div id="regModal" class="large reveal" data-reveal aria-labelledby="Register" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
-        <div class="row expanded">
-            <h1 class="welcome">Register Todas</h1>
-            <div class="large-12 medium-12 small-12 large-centered columns">
-                <form name="regForm" id="form" action="in_regis.php" enctype="multipart/form-data" method="POST">
-                    <legend>Username</legend>
-                    <input type="text" name="username" id="username" placeholder="username" class="small-10">
-                    <legend>Password</legend>
-                    <input type="password" name="password" id="password" placeholder="password" class="small-10">
-                    <button class="button" type="submit" name="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div id="infoModal" class="medium reveal" data-reveal aria-labelledby="info" aria-hidden="true" data-animation-in="fade-in" data-animation-out="fade-out">
-        <div class="row expanded">
-            <h1 class="welcome">Profile</h1>
-        </div>
-        <div class="row expanded">
-            <div class="large-12 medium-12 small-12 profile-container columns">
-                Username :
-                <br> Level :
-                <br> Exp :
-                <br> Coins :
-                <br>
-            </div>
-        </div>
-        <button class="close-button" data-close aria-label="Close Accessible Modal" type="button">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
+
     <div class="upload-container">
         <h1>New Contest</h1>
         <div class="upload-content">

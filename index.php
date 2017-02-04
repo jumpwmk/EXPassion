@@ -30,7 +30,8 @@ include "script.php";
                                     {
                                     echo "<a class='dummy-nav-to'></a>
                                           <a href='task.php' class='dummy-nav-to'>Task</a>
-                                          <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                          <a href='contest_list.php' class='nav-to'>Contest</a>
+                                          <a href='upload.php' class='nav-to'>Upload</a>";
                                     }  
                                 ?>
 
@@ -239,33 +240,7 @@ include "script.php";
             </div>
         </div>
         <br>
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="row full-width">
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 1 IN FOOTER</p>
-                </div>
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 2 IN FOOTER</p>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 3 IN FOOTER (FEATURES)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Forums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <ul>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 4 IN FOOTER (FOLLOW US)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Github</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <ul>
-                </div>
-            </div>
-        </footer>
+
         <script src="js/vendor/jquery.js"></script>
         <script src="js/vendor/what-input.js"></script>
         <script src="js/vendor/foundation.js"></script>

@@ -153,7 +153,7 @@ include "script.php";
                         <div class="large-2 columns chem"><a href='task.php?subject_id=2'>Chemistry</a></div>
                         <div class="large-2 columns bio"><a href='task.php?subject_id=3' >Biology</a></div>
                         <div class="large-2 columns eng"><a href='task.php?subject_id=4' >English</a></div>
-                        <div class="large-2 columns social"><a href='task.php?subject_id=5'">Social Study</a></div>
+                        <div class="large-2 columns social"><a href='task.php?subject_id=5'>Social Study</a></div>
                         <div class="large-1 columns thai"><a href='task.php?subject_id=6'>Thai</a></div>
                     </div>
                 </div>
@@ -198,33 +198,6 @@ include "script.php";
             
                     
         </div>
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="row full-width">
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 1 IN FOOTER</p>
-                </div>
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 2 IN FOOTER</p>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 3 IN FOOTER (FEATURES)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Forums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <ul>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 4 IN FOOTER (FOLLOW US)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Github</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <ul>
-                </div>
-            </div>
-        </footer>
 
         <script src="setElement.js"></script>
 

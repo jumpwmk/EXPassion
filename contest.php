@@ -178,33 +178,7 @@ include "connect.php";
                 <a onclick="reload()" class="button expanded" >Reload !!!</a>
             </div>
         </div>
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="row full-width">
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 1 IN FOOTER</p>
-                </div>
-                <div class="small-12 medium-3 large-4 columns">
-                    <p>TEST COLUMN 2 IN FOOTER</p>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 3 IN FOOTER (FEATURES)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Forums</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <ul>
-                </div>
-                <div class="small-6 medium-3 large-2 columns">
-                    <p>TEST COLUMN 4 IN FOOTER (FOLLOW US)</p>
-                    <ul class="footer-links">
-                        <li><a href="#">Github</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <ul>
-                </div>
-            </div>
-        </footer>
+      
 
         <script src="setElement_contest.js"></script>
 

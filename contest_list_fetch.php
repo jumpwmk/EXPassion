@@ -19,7 +19,7 @@
 <?php
 	function table($subject){
 		global $success;
-		$str = "SELECT * FROM contest WHERE grouptask = $subject "; 
+		$str = "SELECT * FROM contest WHERE grouptask = $subject AND status= 0"; 
 		$query = mysqli_query($success,$str);
 		$_final = "";
 		$countt =0;
