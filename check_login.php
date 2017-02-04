@@ -15,6 +15,24 @@
 	{
 		$_SESSION["username"] = $usernamee;
 		$_SESSION["id"] = $objResult["id"];
+		for($i = 0; $i < 7; $i++)
+		{
+			$sqll = "SELECT  * FROM members ORDER BY rating$i DESC LIMIT 10 ";
+			$resultt = mysqli_query($success,$sqll);
+			$countt = 0;
+			while($roww = mysqli_fetch_assoc($resultt))
+			{
+				if($roww["username"]==$usernamee)
+				{
+					$_SESSION["upload"]=1;
+					$countt++;
+					break;
+				}
+				
+			} 
+			if($countt!=0)
+				break;
+		}
 		header("location:index.php");
 		exit();		
 	}

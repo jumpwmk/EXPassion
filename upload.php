@@ -44,8 +44,11 @@ $(function() {
                                     {
                                     echo "<a class='dummy-nav-to'></a>
                                           <a href='task.php' class='dummy-nav-to'>Task</a>
-                                          <a href='contest_list.php' class='nav-to'>Contest</a>
-                                          <a href='upload.php' class='nav-to'>Upload</a>";
+                                          <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                          if($_SESSION["upload"]==1)
+                                        {
+                                            echo" <a href='upload.php' class='nav-to'>Upload</a>";
+                                        }  
                                     }  
                                 ?>
 
@@ -232,13 +235,25 @@ $(function() {
                     <label for="name">Subject:</label>
                     <select id="category-select" name="category">
                         <option value="">select subject</option>
-                        <option value="0">Mathemetics</option>
-                        <option value="1">Physics</option>
-                        <option value="2">Chemistry</option>
-                        <option value="3">Biology</option>
-                        <option value="4">English</option>
-                        <option value="5">Social Study</option>
-                        <option value="6">Thai</option>
+                        <?
+                            $subject_name = array();
+                            $subject_name = ['Mathemetics','Physics','Chemistry','Biology','English','Social Study','Thai'];
+                            for($i = 0; $i < 7; $i++)
+                            {
+                                $subject_sql = "SELECT  * FROM members ORDER BY rating$i DESC LIMIT 10 ";
+                                $subject_result = mysqli_query($success,$subject_sql);
+                                $countt = 0;
+                                while($roww = mysqli_fetch_assoc($subject_result))
+                                {
+                                    if($roww["username"]==$_SESSION["username"])
+                                    {
+                                        echo "<option value=".$i.">".$subject_name[$i]."</option>";
+                                        break;
+                                    }
+                                } 
+                            }
+                        ?>
+                       
                     </select>
                     <div class="spacer"></div>
                     <div class="form-margin">

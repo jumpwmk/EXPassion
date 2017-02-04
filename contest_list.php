@@ -34,6 +34,10 @@ include "contest_list_fetch.php";
                                     echo "<a class='dummy-nav-to'></a>
                                           <a href='task.php' class='dummy-nav-to'>Task</a>
                                           <a href='contest_list.php' class='nav-to'>Contest</a>";
+                                          if($_SESSION["upload"]==1)
+                                        {
+                                            echo" <a href='upload.php' class='nav-to'>Upload</a>";
+                                        }  
                                     }  
                                 ?>
 
