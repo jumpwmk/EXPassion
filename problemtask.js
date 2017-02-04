@@ -158,12 +158,12 @@ function checkTask()
 
 function rankup()
 {
-    expOfUser = expOfUser + 15 + 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 5);
+    expOfUser = expOfUser + 5 + 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 10);
 }
 
 function rankdown() 
 {
-    expOfUser = expOfUser - 5 - 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 5);
+    expOfUser = expOfUser - 15 - 2 * (rank[index[IDproblem]] - rank10[index[IDproblem]] * 10);
 }
 
 function reload()
