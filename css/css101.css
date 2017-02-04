@@ -1,13 +1,37 @@
-html, input {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 0.8em;}
-body { width: 500px; margin: 50px auto 0 auto; display: block;}
-h1 { font-size: 1.5em; color: #333; }
-input { font-size: 0.9em; padding: 5px; border: 1px solid #ccc;  margin: 0; display: block;}
-a { text-decoration: none; color: #666; font-weight: bold; }
-a:hover { color: #ff0000; }
-#divTxt { width:400px; padding: 5px;  }
-p a img { border: none; vertical-align: middle; }
-.spacer {clear: both; height: 10px; }
-.btn { width: 90px; font-weight: bold; }
-#container { border: 1px solid #ccc; padding: 2px; }
-.clear {overflow: hidden;width: 100%;
+input { 
+	font-size: 0.9em; padding: 5px; border: 1px solid #ccc;  margin: 0; display: block;
+}
+#divTxt { 
+	width:400px; padding: 5px;  
+}
+p a img { 
+	border: none; vertical-align: middle; 
+}
+.spacer {
+	clear: both; height: 10px; 
+}
+.btn { 
+	width: 90px; font-weight: bold; 
+}
+#container { 
+	margin-top: :15px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.form-margin{
+	border: 1px solid #ccc; padding: 2px; 
+}
+.clear {
+	overflow: hidden;width: 100%;
 } 
+.upload-container{
+	width : 1000px;
+	margin : 0 auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.upload-content{
+	width: 900px;
+	margin: 50px;
+}
