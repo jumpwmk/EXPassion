@@ -44,6 +44,7 @@ $password = $_POST['password'];
 			{
 				$query = "INSERT INTO members (username,password) VALUES ('$username','$password')";
 				$success->query($query) or die("Error [".$query."]");
+				echo" <script>window.location.replace('index.php');</script>";
 			}
 		else{
 			echo "
