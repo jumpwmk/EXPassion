@@ -152,7 +152,7 @@
     $rating[$countuser] = $rating[$countuser - 1];
     for($i = 0; $i < $countuser; $i++)
     {
-      $mean = pow(pow($real[ $i ],1.6487212707) * $expected[ $i ],3.71828182846);
+      $mean = pow(pow($real[ $i ],1.6487212707) * $expected[ $i ],1/1.6487212707);
       $leftbsearch = 0; 
       $rightbsearch = 5000;
       while($rightbsearch - $leftbsearch > pow(10,-5))
