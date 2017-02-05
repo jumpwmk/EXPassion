@@ -149,7 +149,7 @@ include "contest_list_fetch.php";
         <br>
         <div class="row expanded lead-head">
             <div class="head">
-                Sorry sorry I'm sorry sorry...
+                Contest
             </div>
         </div>
         <!-- MAIN CONTENT-->
