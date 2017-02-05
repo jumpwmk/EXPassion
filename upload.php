@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?
+<?php
 include "connect.php";
 ?>
 <html>
@@ -24,7 +24,14 @@ $(function() {
     $('p#add_field').click(function() {
         count += 1;
         $('#container').append(
-            '<strong>Problem #' + count + '</strong><br />' + 'ProblemContent<br>' + '<textarea rows="4" cols="50" name="task[]"></textarea><br>' + 'A:' + '<input id="cA_' + count + '" name="choiceA[]' + '" type="text" />' + 'B:' + '<input id="cB_' + count + '" name="choiceB[]' + '" type="text" />' + 'C:' + '<input id="cC_' + count + '" name="choiceC[]' + '" type="text" />' + 'D:' + '<input id="cD_' + count + '" name="choiceD[]' + '" type="text" />' + 'Key:' + '<input id="key_' + count + '" name="key[]' + '" type="text" />' + '<br>');
+            '<strong>Problem #' + count + '</strong><br />' + 
+            'ProblemContent<br>' + '<textarea rows="4" cols="50" name="task[]"></textarea><br>' + 
+            'A:' + '<input id="cA_' + count + '" name="choiceA[]' + '" type="text" />' + 
+            'B:' + '<input id="cB_' + count + '" name="choiceB[]' + '" type="text" />' + 
+            'C:' + '<input id="cC_' + count + '" name="choiceC[]' + '" type="text" />' + 
+            'D:' + '<input id="cD_' + count + '" name="choiceD[]' + '" type="text" />' + 
+            'Key:' + '<input id="key_' + count + '" name="key[]' + '" type="text" />' + 
+            'Editorial Upload: ' + '<input id="file_' + count + '" name="uploadfile[]' + '" type="file" />' + '<br>');
 
     });
 });
@@ -163,104 +170,141 @@ $(function() {
         <h1>New Contest</h1>
         <div class="upload-content">
             <?php
-    //If form was submitted
-    if (isset($_POST['btnSubmit'])) {
-        //create instance of database class
-        include('connect_upload.php');
-        $db = new mysqli($servername, $username, $password);
-        
-        if (mysqli_connect_errno()) {
-            printf("Connect failed: %s\n", mysqli_connect_error());
-            exit();
-        }
-        if(mysqli_select_db($db, "expassion"))
-            echo "yes\n";
-        else echo "no\n";
-        /* return name of current default database */
-        if ($result = mysqli_query($db, "SELECT DATABASE()")) {
-            $row = mysqli_fetch_row($result);
-            printf("Default database is %s.\n",$row[0]);
-            mysqli_free_result($result);
-        }
-        //Check if user has actually added additional task to prevent a php error
-        if ($_POST['task']) {
-            
-            $contest_name = $_POST['contest_name'];
-            $subject = $_POST['category'];
-            echo "$contest_name "."$subject<br>"; 
-            $sql_contest = "INSERT INTO contest (name, grouptask) VALUES ('$contest_name', '$subject')";
-            if($db->query($sql_contest)){
-                echo "contest added!";
+            //If form was submitted
+            if (isset($_POST['btnSubmit'])) {
+                //create instance of database class
+                include('connect_upload.php');
+                $mydb = new mysqli($servername, $username, $password);
+                
+                if (mysqli_connect_errno()) {
+                    printf("Connect failed: %s\n", mysqli_connect_error());
+                    exit();
+                }
+                if(mysqli_select_db($mydb, "expassion"))
+                    echo "yes\n";
+                else echo "no\n";
+                /* return name of current default database */
+                if ($result = mysqli_query($mydb, "SELECT DATABASE()")) {
+                    $row = mysqli_fetch_row($result);
+                    printf("Default database is %s.\n",$row[0]);
+                    mysqli_free_result($result);
+                }
+                //Check if user has actually added additional task to prevent a php error
+                if ($_POST['task']) {
+                    
+                    $contest_name = $_POST['contest_name'];
+                    $subject = $_POST['category'];
+                    $contest_start = $_POST['contest_start'];
+                    $contest_end = $_POST['contest_end'];
+                    $writer = $_SESSION['username'];
+                    echo "$contest_name "."$subject<br>"; 
+                    $sql_contest = "INSERT INTO contest (name, grouptask, start, end, writer) VALUES ('$contest_name', '$subject', '$contest_start', '$contest_end', '$writer')";
+                    if($mydb->query($sql_contest)){
+                        echo "contest added!";
+                    }
+                    else echo "no contest added!  "."$mydb->error";
+                    //get last inserted userid
+                    $inserted_contest_id = $mydb->insert_id;
+                    
+                    //Loop through added task
+                    $i = 0;
+                    $id_list = array();
+                    $inserted_task_id;
+                    foreach ( $_POST['task'] as $val ) {
+                        $task = $_POST['task'][$i];
+                        $cA = $_POST['choiceA'][$i];
+                        $cB = $_POST['choiceB'][$i];
+                        $cC = $_POST['choiceC'][$i];
+                        $cD = $_POST['choiceD'][$i];
+                        $key = $_POST['key'][$i];
+                        $i++;
+                        /*//Insert into websites table
+         
+                        */
+                        $sql_task = "INSERT INTO task (subject, grouptask, task, choiceA, choiceB, choiceC, choiceD, checkAnswer)
+                                    VALUES ('$subject', '$inserted_contest_id', '$task', '$cA', '$cB', '$cC', '$cD', '$key')";
+                        if($mydb->query($sql_task)){
+                            echo "task added!";
+                            $inserted_task_id = $mydb->insert_id;
+                            array_push($id_list, $inserted_task_id);
+                        }
+                        else echo "Task add Error :  "."$mydb->error";
+
+                    }
+                    //upload editorail files
+                    $i = 1;
+                    foreach ($_FILES["uploadfile"]["error"] as $key => $error) {
+                        $upload = 1;
+                        if ($_FILES['uploadfile']['type'][$key] != "pdf") {
+                            echo "Problem $i : File type must be PDF!";
+                            $upload = 0;
+                        }
+                        if ($_FILES["uploadfile"]["size"][$key] > 500000) {
+                            echo "Problem $i : Sorry, your file is too large.";
+                            $upload = 0;
+                        }
+                        if ($error == UPLOAD_ERR_OK && $upload) {
+                            $tmp_name = $_FILES["uploadfile"]["tmp_name"][$key];
+                            // basename() may prevent filesystem traversal attacks;
+                            // further validation/sanitation of the filename may be appropriate
+                            $name = $id_list[$i-1];
+                            echo "name is $name";
+                            move_uploaded_file($tmp_name, "pdf/$name");
+                            echo "file $i Upload!! ";
+                        }
+                        else{
+                            echo "file $i not Upload!";
+                        }
+                        $i++;
+                    }
+                } else {
+                
+                    echo "Please add at least ine task";
+                    
+                }
+                echo "<h2>Contets Added, <strong>" . count($_POST['task']) . "</strong> task(s) by this user!</h2>";
+                
+                //disconnect mysql connection
+                $mydb->close();
             }
-            else echo "no contest added!  "."$db->error";
-            //get last inserted userid
-            $inserted_contest_id = $db->insert_id;
-            
-            //Loop through added task
-            $i = 0;
-            foreach ( $_POST['task'] as $val ) {
-                $task = $_POST['task'][$i];
-                $cA = $_POST['choiceA'][$i];
-                $cB = $_POST['choiceB'][$i];
-                $cC = $_POST['choiceC'][$i];
-                $cD = $_POST['choiceD'][$i];
-                $key = $_POST['key'][$i];
-                $i++;
-                /*//Insert into websites table
- 
-                */
-                $sql_task = "INSERT INTO task (subject, grouptask, task, choiceA, choiceB, choiceC, choiceD, checkAnswer)
-                            VALUES ('$subject', '$inserted_contest_id', '$task', '$cA', '$cB', '$cC', '$cD', '$key')";
-                if($db->query($sql_task))
-                    echo "task added!";
-                else echo "Error :  "."$db->error";
-            }
-            
-        } else {
-        
-            //No additional task added by user
-            
-        }
-        echo "<h1>User Added, <strong>" . count($_POST['task']) . "</strong> website(s) added for this user!</h1>";
-        
-        //disconnect mysql connection
-        $db->close();
-    }
-?>
-                <?php if (!isset($_POST['btnSubmit'])) { ?>
-                <form name="test" method="post" action="">
-                    <label for="name">Contest:</label>
-                    <input type="text" name="contest_name" id="contest" />
-                    <div class="spacer"></div>
-                    <label for="name">Subject:</label>
-                    <select id="category-select" name="category">
-                        <option value="">select subject</option>
-                        <?
-                            $subject_name = array();
-                            $subject_name = ['Mathemetics','Physics','Chemistry','Biology','English','Social Study','Thai'];
-                            for($i = 0; $i < 7; $i++)
+        ?>
+        <?php if (!isset($_POST['btnSubmit'])) { ?>
+        <form name="taskform" method="post" action="">
+            <label for="name">Contest:</label>
+            <input type="text" name="contest_name" id="contest" />
+            <div class="spacer"></div>
+            <label for="name">Subject:</label>
+            <select id="category-select" name="category">
+                <option value="">select subject</option>
+                <?php
+                    $subject_name = array();
+                    $subject_name = ['Mathemetics','Physics','Chemistry','Biology','English','Social Study','Thai'];
+                    for($i = 0; $i < 7; $i++)
+                    {
+                        $subject_sql = "SELECT  * FROM members ORDER BY rating$i DESC LIMIT 10 ";
+                        $subject_result = mysqli_query($success,$subject_sql);
+                        $countt = 0;
+                        while($roww = mysqli_fetch_assoc($subject_result))
+                        {
+                            if($roww["username"]==$_SESSION["username"])
                             {
-                                $subject_sql = "SELECT  * FROM members ORDER BY rating$i DESC LIMIT 10 ";
-                                $subject_result = mysqli_query($success,$subject_sql);
-                                $countt = 0;
-                                while($roww = mysqli_fetch_assoc($subject_result))
-                                {
-                                    if($roww["username"]==$_SESSION["username"])
-                                    {
-                                        echo "<option value=".$i.">".$subject_name[$i]."</option>";
-                                        break;
-                                    }
-                                } 
+                                echo "<option value=".$i.">".$subject_name[$i]."</option>";
+                                break;
                             }
-                        ?>
-                       
-                    </select>
-                    <div class="spacer"></div>
-                    <div class="form-margin">
-                    <div id="container">
-                        <p id="add_field"><a href="#"><span>&raquo; Add problems.....</span></a></p>
-                    </div>
-                    </div>
+                        } 
+                    }
+                ?>   
+            </select>
+            <label for="name">Contest Start:</label>
+            <input type="datetime-local" name="contest_start" />
+            <label for="name">Contest End:</label>
+            <input type="datetime-local" name="contest_end" />
+            <div class="spacer"></div>
+            <div class="form-margin">
+            <div id="container">
+                <p id="add_field"><a href="#"><span>&raquo; Add problems.....</span></a></p>
+            </div>
+            </div>
         </div>
         <div class="spacer "></div>
         <input id="go" name="btnSubmit" type="submit" value="Submit" class="btn" />
