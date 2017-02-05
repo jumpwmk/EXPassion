@@ -196,7 +196,7 @@ include "script.php";
 
         </div>
         <div class="row submit_reload expanded">
-            <div class="small-8 medium-8 large-8 columns"><p class="score" id = "score"></p></div>
+            <div class="small-8 medium-8 large-8 columns"><p class="score"></p></div>
             <div class="small-2 medium-2 large-2 columns"><a onclick="checkTask()" class="button expanded" >Submit !!!</a></div>
             <div class="small-2 medium-2 large-2 columns"><a onclick="reload()" class="button expanded" >Reload !!!</a></div>
             
@@ -206,7 +206,6 @@ include "script.php";
         <script src="setElement.js"></script>
 
         <?php
-            echo "The time is " . date("h:i:sa");
             include 'connectphpjump.php';
         ?>
 

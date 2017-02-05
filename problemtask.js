@@ -5,7 +5,6 @@ var arrsubject = ["Math","Physics","Chemistry","Biology","English","Social Study
 var choice = ["choiceA", "choiceB", "choiceC", "choiceD", "choiceE"];
 var alphabet = ['A', 'B', 'C', 'D', 'E'];
 
-document.getElementById("score").innerHTML = rank10[index[IDproblem]];
 document.getElementById("subject").innerHTML = arrsubject[subject];
 document.getElementById("profile_user").innerHTML = "Username: " + username + "\<br\>" + "Level: " + rankOfUser + "\<br\>" + "Exp: " + expOfUser + "\<br\>" + "Coins: " + coin + "\<br\>" ;
 document.getElementById("showscore").title = "Lv: " + rankOfUser + " Exp: " + expOfUser + " Coin: " + coin;
