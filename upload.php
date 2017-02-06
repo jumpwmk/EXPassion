@@ -222,13 +222,13 @@ $(function() {
             if (isset($_POST['btnSubmit'])) {
                 //create instance of database class
                 include('connect_upload.php');
-                $mydb = new mysqli($servername, $username, $password);
+                $mydb = new mysqli($host, $user, $password);
                 
                 if (mysqli_connect_errno()) {
                     printf("Connect failed: %s\n", mysqli_connect_error());
                     exit();
                 }
-                if(mysqli_select_db($mydb, "expassion"))
+                if(mysqli_select_db($mydb, $db))
                     ;
                 else echo "cant select database<br>";
                 /* return name of current default database */
